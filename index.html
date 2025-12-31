@@ -260,7 +260,205 @@
             left: 50%;
             transform: translateX(-50%);
         }
+        <!-- قسم التواصل مع البريد المباشر -->
+<section id="contact-section" style="background-color: #f8f9fa; padding: 80px 0;">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2><i class="fas fa-envelope"></i> بريد التواصل المباشر</h2>
+            <p>للاستفسار عن الباقات أو الاشتراك، راسلنا مباشرة عبر هذا النموذج</p>
+        </div>
         
+        <div class="contact-form-container" data-aos="fade-up" data-aos-delay="100">
+            <form id="direct-email-form" class="contact-form" onsubmit="sendDirectEmail(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> الاسم الكامل *</label>
+                        <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> رقم الهاتف *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="مثال: 05XXXXXXXX">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> البريد الإلكتروني *</label>
+                    <input type="email" id="email" name="email" required placeholder="example@domain.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="package"><i class="fas fa-box"></i> الباقة المطلوبة *</label>
+                    <select id="package" name="package" required>
+                        <option value="">اختر الباقة المناسبة</option>
+                        <option value="1000">باقة 1,000 ريال (ربح يومي 500 ريال)</option>
+                        <option value="10000">باقة 10,000 ريال (ربح يومي 2,000 ريال)</option>
+                        <option value="100000">باقة 100,000 ريال (ربح يومي 15,000 ريال)</option>
+                        <option value="other">باقة أخرى</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comment"></i> الرسالة *</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="اكتب رسالتك هنا..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i> إرسال الرسالة إلى compny71@gmail.com
+                </button>
+                
+                <p class="form-note" style="text-align: center; margin-top: 15px; color: #666; font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> سيتم إرسال رسالتك مباشرة إلى البريد الإلكتروني للشركة
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<style>
+/* أنماط نموذج التواصل المباشر */
+.contact-form-container {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--secondary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: white;
+    border: none;
+    padding: 16px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* تحسينات للجوال */
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 25px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+</style>
+
+<script>
+// دالة إرسال البريد المباشر
+function sendDirectEmail(event) {
+    event.preventDefault();
+    
+    const form = document.getElementById('direct-email-form');
+    const formData = new FormData(form);
+    const submitBtn = form.querySelector('.btn-submit');
+    
+    // البيانات الأساسية
+    const name = formData.get('name');
+    const phone = formData.get('phone');
+    const email = formData.get('email');
+    const package = formData.get('package');
+    const message = formData.get('message');
+    
+    // نص البريد الإلكتروني
+    const subject = `طلب جديد: ${name} - باقة ${package} ريال`;
+    const body = `
+الاسم: ${name}
+رقم الهاتف: ${phone}
+البريد الإلكتروني: ${email}
+الباقة المطلوبة: ${package}
+الرسالة: ${message}
+
+تم إرسال هذا الطلب عبر النموذج المباشر على موقع شركة الشهراني.
+    `;
+    
+    // تشفير البيانات للبريد
+    const mailtoLink = `mailto:compny71@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // حفظ النص الأصلي للزر
+    const originalText = submitBtn.innerHTML;
+    
+    // تغيير نص الزر أثناء المعالجة
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جارِ فتح بريدك الإلكتروني...';
+    submitBtn.disabled = true;
+    
+    // فتح بريد المستخدم
+    setTimeout(() => {
+        window.location.href = mailtoLink;
+        
+        // إعادة تعيين النموذج بعد ثانيتين
+        setTimeout(() => {
+            form.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            
+            // عرض رسالة نجاح
+            alert('تم فتح بريدك الإلكتروني. يرجى إرسال الرسالة من بريدك الشخصي. شكراً لاتصالك بشركة الشهراني!');
+        }, 2000);
+    }, 500);
+}
+</script>
         /* قسم نبذة عن الشركة */
         .about {
             background-color: var(--light-gray);
