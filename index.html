@@ -125,7 +125,35 @@
     }]
 }
 </script>
+/* إصلاح قسري للاتجاه */
+html[dir="rtl"], html[dir="rtl"] body, html[dir="rtl"] * {
+    direction: rtl !important;
+    text-align: right !important;
+    float: right !important;
+}
 
+/* إصلاح العناصر الرئيسية */
+header, nav, main, section, footer, div, form {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* إصلاح النصوص */
+p, h1, h2, h3, h4, h5, h6, span, li, a, label, td, th {
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+/* إصلاح الحقول */
+input, textarea, select {
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+/* إصلاح الأزرار */
+button {
+    text-align: center !important;
+    }
 <style>
         /* الهيدر */
         header {
