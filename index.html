@@ -19,7 +19,7 @@
         }
 
         body {
-            background: #f5f0eb; /* بيج فاتح */
+            background: #f5f0eb;
             min-height: 100vh;
             padding: 20px;
             display: flex;
@@ -30,21 +30,21 @@
         .bank-container {
             max-width: 1300px;
             width: 100%;
-            background: #ffffff; /* أبيض ناصع */
+            background: #ffffff;
             border-radius: 48px 48px 32px 32px;
             padding: 28px 32px 35px;
             box-shadow: 0 20px 50px rgba(0, 20, 40, 0.12), 0 0 0 1px rgba(0, 50, 100, 0.04);
             transition: all 0.25s;
         }
 
-        /* ----- HEADER (هيد) ----- */
+        /* ----- HEADER ----- */
         .header {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
             padding-bottom: 16px;
-            border-bottom: 2px solid #e8e0d8; /* سكري فاتح */
+            border-bottom: 2px solid #e8e0d8;
             margin-bottom: 22px;
         }
 
@@ -56,7 +56,7 @@
 
         .brand i {
             font-size: 2.6rem;
-            color: #1a5276; /* أزرق داكن أنيق */
+            color: #1a5276;
             filter: drop-shadow(0 2px 8px rgba(26, 82, 118, 0.15));
         }
 
@@ -82,7 +82,7 @@
             gap: 22px;
             color: #4a5b66;
             font-size: 0.8rem;
-            background: #f8f4f0; /* سكري خفيف */
+            background: #f8f4f0;
             padding: 8px 22px;
             border-radius: 60px;
             border: 1px solid #e8e0d8;
@@ -99,14 +99,14 @@
             color: #1a2e3f;
         }
 
-        /* ----- SERVICES ICONS (أيقونات الخدمات) ----- */
+        /* ----- SERVICES ICONS ----- */
         .services-bar {
             display: flex;
             flex-wrap: wrap;
             gap: 8px 20px;
             justify-content: center;
             margin-bottom: 30px;
-            background: #faf7f4; /* بيج سكري */
+            background: #faf7f4;
             padding: 12px 24px;
             border-radius: 60px;
             border: 1px solid #e8e0d8;
@@ -141,7 +141,7 @@
             transform: scale(1.05);
         }
 
-        /* ----- MAIN GRID: بحث + استعلام ----- */
+        /* ----- MAIN GRID ----- */
         .main-grid {
             display: grid;
             grid-template-columns: 1fr 340px;
@@ -157,7 +157,7 @@
 
         /* LEFT: SEARCH CARD */
         .search-card {
-            background: #faf7f4; /* بيج ناعم */
+            background: #faf7f4;
             border-radius: 40px;
             padding: 30px 28px;
             border: 1px solid #e8e0d8;
@@ -235,7 +235,7 @@
             font-size: 1.2rem;
         }
 
-        /* RESULT AREA (يظهر بعد الضغط على استعلام) */
+        /* RESULT AREA */
         .result-area {
             margin-top: 24px;
             display: none;
@@ -513,7 +513,7 @@
                     <button id="searchBtn"><i class="fas fa-arrow-left"></i> استعلام</button>
                 </div>
 
-                <!-- RESULT AREA (يظهر بعد البحث) -->
+                <!-- RESULT AREA -->
                 <div id="resultArea" class="result-area">
                     <div class="receipt-card">
                         <div class="receipt-header">
@@ -541,7 +541,7 @@
                     </div>
                 </div>
 
-                <!-- بطاقة إضافية للاستعلامات السريعة -->
+                <!-- بطاقة إضافية -->
                 <div class="action-card" style="background:#ffffff;">
                     <h4><i class="fas fa-phone-alt"></i> خدمة العملاء</h4>
                     <div style="display:flex; flex-direction:column; gap:8px; font-size:0.85rem; color:#2c3e50;">
@@ -564,42 +564,42 @@
 
     <script>
         (function() {
-            // ---------- الحوالات المخفية (10 حوالات) ----------
-            const transfers = [];
-            const senderName = "الوليد بن طلال آل سعود";
-            // المستلم سيتم إخفاؤه في الواجهة (سيظهر "****" )
-            const receiverName = "نجوم";
-
-            // أرقام حوالات محددة (ثابتة) كما طلبت
-            const fixedNumbers = [
-                "100234567", "200345678", "300456789", "400567890",
-                "500678901", "600789012", "700890123", "800901234",
-                "900012345", "101123456"
+            // ---------- المستفيدين (7 مستفيدين) مع أسمائهم الكاملة كما طلبت ----------
+            const beneficiaries = [
+                "احمد محمد حسان احمد",
+                "هواري خالد عبدالقادر بوجناح",
+                "احمد مهيوب محمد غالب",
+                "عبدالمجيد علي ناصر العلاني",
+                "ناصر محسن الحاجي",
+                "خليفي محمد الطيب",
+                "حسام الدين فتحي شاكر محمود"
             ];
 
-            // المبالغ المطابقة لكل رقم
-            const amountsMap = {
-                "100234567": 34000,
-                "200345678": 52000,
-                "300456789": 78000,
-                "400567890": 91000,
-                "500678901": 112000,
-                "600789012": 67000,
-                "700890123": 134000,
-                "800901234": 48000,
-                "900012345": 149000,
-                "101123456": 83000
-            };
+            // مبلغ ثابت لكل مستفيد: 14,000 دولار
+            const fixedAmount = 14000;
 
-            // بناء مصفوفة الحوالات
-            fixedNumbers.forEach(num => {
+            const transfers = [];
+
+            // 1. إضافة المستفيدين مع مبلغ 14,000 دولار لكل منهم
+            beneficiaries.forEach((name, index) => {
+                // إنشاء رقم حوالة فريد (9 أرقام) يبدأ بـ 1 ثم رقم تسلسلي
+                const number = `1${String(index + 1).padStart(8, '0')}`;
                 transfers.push({
-                    number: num,
-                    sender: senderName,
-                    receiver: receiverName,
-                    amount: amountsMap[num] || 50000,
+                    number: number,
+                    sender: "الوليد بن طلال آل سعود",
+                    receiver: name, // الاسم الكامل كما هو
+                    amount: fixedAmount,
                     date: new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })
                 });
+            });
+
+            // 2. إضافة حوالة إضافية بمبلغ 22,420 دولار (كما طلبت)
+            transfers.push({
+                number: "222420000",
+                sender: "الوليد بن طلال آل سعود",
+                receiver: "مؤسسة الوليد بن طلال الخيرية",
+                amount: 22420,
+                date: new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })
             });
 
             // DOM refs
@@ -625,33 +625,30 @@
             updateClock();
             setInterval(updateClock, 30000);
 
-            // --- وظيفة البحث (performSearch) مع الجزء المطلوب ---
+            // --- وظيفة البحث ---
             function performSearch(query) {
                 const trimmed = query.trim();
                 if (!trimmed) {
                     alert('الرجاء إدخال رقم الحوالة (9 أرقام)');
                     return;
                 }
-                // التحقق من أن الرقم مكون من 9 أرقام بالضبط
                 if (!/^\d{9}$/.test(trimmed)) {
                     alert('⚠️ رقم الحوالة يجب أن يكون 9 أرقام بالضبط.');
                     return;
                 }
 
-                // البحث عن الحوالة في المصفوفة
-                const found = transfers.find(t => t.number === trimmed);
+                                const found = transfers.find(t => t.number === trimmed);
                 if (!found) {
                     alert('⚠️ لم يتم العثور على حوالة بهذا الرقم. تأكد من الرقم.');
                     resultArea.classList.remove('show');
                     return;
                 }
 
-                // عرض البيانات مع إخفاء اسم المستلم (يظهر "****")
-                const hiddenReceiver = "****";
+                // عرض البيانات مع إظهار اسم المستلم كاملاً (بدون إخفاء)
                 receiptBody.innerHTML = `
                     <div class="receipt-row"><span>رقم الحوالة</span><span>${found.number}</span></div>
                     <div class="receipt-row"><span>المرسل</span><span>${found.sender}</span></div>
-                    <div class="receipt-row"><span>المستلم</span><span>${hiddenReceiver}</span></div>
+                    <div class="receipt-row"><span>المستلم</span><span>${found.receiver}</span></div>
                     <div class="receipt-row"><span>المبلغ</span><span>$${found.amount.toLocaleString()}</span></div>
                     <div class="receipt-row"><span>التاريخ</span><span>${found.date}</span></div>
                 `;
@@ -681,12 +678,16 @@
             });
 
             // --- عرض الأرقام في الكونسول (للتذكير) ---
-            console.log('✅ البنك السعودي الدولي - واجهة جديدة');
+            console.log('✅ البنك السعودي الدولي - تم تحديث المستفيدين');
             console.log('📋 أرقام الحوالات:', transfers.map(t => t.number).join(', '));
-            console.log('📊 المبالغ:', transfers.map(t => `${t.number}: $${t.amount}`).join(' | '));
+            console.log('📊 التفاصيل:', transfers.map(t => `${t.number}: $${t.amount} → ${t.receiver}`).join(' | '));
 
-            // للتصحيح (اختياري)
+            // للتصحيح
             window.__transfers = transfers;
+
+            // عرض أرقام الحوالات في صفحة الويب (للمساعدة)
+            const numbersList = transfers.map(t => t.number).join('، ');
+            console.log('🔢 الأرقام المتاحة: ' + numbersList);
 
         })();
     </script>
