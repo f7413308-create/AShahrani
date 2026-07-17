@@ -564,34 +564,41 @@
 
     <script>
         (function() {
-            // ---------- المستفيدين (7 مستفيدين) مع أسمائهم الكاملة كما طلبت ----------
-            const beneficiaries = [
-                "احمد محمد حسان احمد",
-                "هواري خالد عبدالقادر بوجناح",
-                "احمد مهيوب محمد غالب",
-                "عبدالمجيد علي ناصر العلاني",
-                "ناصر محسن الحاجي",
-                "خليفي محمد الطيب",
-                "حسام الدين فتحي شاكر محمود"
-            ];
+            // ---------- المستفيدين (7 مستفيدين) مع أسمائهم الكاملة كما طلبت ----------// ---------- المستفيدين (8 مستفيدين) ----------
+const beneficiaries = [
+    "احمد محمد حسان احمد",
+    "هواري خالد عبدالقادر بوجناح",
+    "احمد مهيوب محمد غالب",
+    "عبدالمجيد علي ناصر العلاني",
+    "ناصر محسن الحاجي",
+    "خليفي محمد الطيب",
+    "حسام الدين فتحي شاكر محمود",
+    "العربي غريب يوسف محمد القزاز"
+];
 
-            // مبلغ ثابت لكل مستفيد: 14,000 دولار
-            const fixedAmount = 14000;
+// مبلغ ثابت لكل مستفيد: 14,000 دولار
+const fixedAmount = 14000;
 
-            const transfers = [];
+// مبلغ خاص للمستفيد العربي غريب (80,000 ريال ≈ 21,333 دولار)
+const specialAmount = 21333;
 
-            // 1. إضافة المستفيدين مع مبلغ 14,000 دولار لكل منهم
-            beneficiaries.forEach((name, index) => {
-                // إنشاء رقم حوالة فريد (9 أرقام) يبدأ بـ 1 ثم رقم تسلسلي
-                const number = `1${String(index + 1).padStart(8, '0')}`;
-                transfers.push({
-                    number: number,
-                    sender: "الوليد بن طلال آل سعود",
-                    receiver: name, // الاسم الكامل كما هو
-                    amount: fixedAmount,
-                    date: new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })
-                });
-            });
+const transfers = [];
+
+// 1. إضافة المستفيدين مع مبلغ 14,000 دولار لكل منهم (ما عدا العربي غريب)
+beneficiaries.forEach((name, index) => {
+    let amount = fixedAmount;
+    if (name === "العربي غريب يوسف محمد القزاز") {
+        amount = specialAmount;
+    }
+    const number = `1${String(index + 1).padStart(8, '0')}`;
+    transfers.push({
+        number: number,
+        sender: "الوليد بن طلال آل سعود",
+        receiver: name,
+        amount: amount,
+        date: new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })
+    });
+});
 
             // 2. إضافة حوالة إضافية بمبلغ 22,420 دولار (كما طلبت)
             transfers.push({
