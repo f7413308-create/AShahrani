@@ -4,13 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>البنك السعودي الدولي | International Saudi Bank</title>
-    <!-- Google Search Console verification -->
     <meta name="google-site-verification" content="zS7tKdnzcEMlMruQYEiw7v82ApooCCWPP75m9qOf5R8" />
     <meta name="description" content="البنك السعودي الدولي - منصة مصرفية رقمية متطورة" />
-    <!-- Font Awesome 6 (Free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-        /* ----- RESET & BASE ----- */
         * {
             margin: 0;
             padding: 0;
@@ -37,7 +34,6 @@
             transition: all 0.25s;
         }
 
-        /* ----- HEADER ----- */
         .header {
             display: flex;
             flex-wrap: wrap;
@@ -99,7 +95,6 @@
             color: #1a2e3f;
         }
 
-        /* ----- SERVICES ICONS ----- */
         .services-bar {
             display: flex;
             flex-wrap: wrap;
@@ -141,10 +136,9 @@
             transform: scale(1.05);
         }
 
-        /* ----- MAIN GRID ----- */
         .main-grid {
             display: grid;
-            grid-template-columns: 1fr 340px;
+            grid-template-columns: 1fr 380px;
             gap: 28px;
             margin-bottom: 28px;
         }
@@ -155,7 +149,6 @@
             }
         }
 
-        /* LEFT: SEARCH CARD */
         .search-card {
             background: #faf7f4;
             border-radius: 40px;
@@ -235,7 +228,6 @@
             font-size: 1.2rem;
         }
 
-        /* RESULT AREA */
         .result-area {
             margin-top: 24px;
             display: none;
@@ -307,7 +299,6 @@
             margin-left: 8px;
         }
 
-        /* RIGHT: WITHDRAW & EXTRAS */
         .side-panel {
             display: flex;
             flex-direction: column;
@@ -390,7 +381,81 @@
             color: #b8860b;
         }
 
-        /* FOOTER */
+        .withdraw-fields {
+            display: none;
+            margin-top: 12px;
+            gap: 10px;
+            flex-direction: column;
+        }
+
+        .withdraw-fields.show {
+            display: flex;
+        }
+
+        .withdraw-fields select,
+        .withdraw-fields input {
+            padding: 12px 16px;
+            border-radius: 30px;
+            border: 2px solid #d5d0ca;
+            background: #ffffff;
+            font-size: 0.9rem;
+            color: #1a2e3f;
+            outline: none;
+            transition: 0.2s;
+            width: 100%;
+        }
+
+        .withdraw-fields select:focus,
+        .withdraw-fields input:focus {
+            border-color: #1a5276;
+            box-shadow: 0 0 0 4px rgba(26, 82, 118, 0.08);
+        }
+
+        .withdraw-fields label {
+            font-size: 0.8rem;
+            color: #5d6d7e;
+            margin-bottom: 2px;
+        }
+
+        .country-note {
+            display: none;
+            background: #fef9f0;
+            padding: 12px 16px;
+            border-radius: 20px;
+            border: 1px solid #e8d5b8;
+            color: #a67c4b;
+            font-size: 0.8rem;
+            margin-top: 6px;
+        }
+
+        .country-note.show {
+            display: block;
+        }
+
+        .email-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 60px;
+            background: #eaf2f8;
+            border: 2px solid #1a5276;
+            color: #1a5276;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .email-btn:hover {
+            background: #1a5276;
+            color: #ffffff;
+            transform: scale(1.02);
+        }
+
         .footer-links {
             margin-top: 28px;
             display: flex;
@@ -422,7 +487,6 @@
             font-size: 0.9rem;
         }
 
-        /* ANIMATIONS */
         @keyframes fadeSlide {
             0% {
                 opacity: 0;
@@ -434,7 +498,6 @@
             }
         }
 
-        /* RESPONSIVE */
         @media (max-width: 600px) {
             .bank-container {
                 padding: 16px;
@@ -476,7 +539,6 @@
 
     <div class="bank-container">
 
-        <!-- ===== HEADER ===== -->
         <header class="header">
             <div class="brand">
                 <i class="fas fa-university"></i>
@@ -491,7 +553,6 @@
             </div>
         </header>
 
-        <!-- ===== SERVICES ICONS ===== -->
         <div class="services-bar">
             <span class="service-item"><i class="fas fa-exchange-alt"></i> تحويل</span>
             <span class="service-item"><i class="fas fa-search-dollar"></i> استعلام</span>
@@ -502,27 +563,22 @@
             <span class="service-item"><i class="fas fa-globe-asia"></i> فروع</span>
         </div>
 
-        <!-- ===== MAIN GRID ===== -->
         <div class="main-grid">
 
-            <!-- LEFT: SEARCH + RESULT -->
             <div class="search-card">
                 <h3><i class="fas fa-search"></i> استعلام عن حوالة <span style="font-weight:300; font-size:0.8rem; color:#5d6d7e;">(Transfer Inquiry)</span></h3>
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="أدخل رقم الحوالة (9 أرقام)" maxlength="9" />
+                    <input type="text" id="searchInput" placeholder="أدخل رقم الحوالة" maxlength="10" />
                     <button id="searchBtn"><i class="fas fa-arrow-left"></i> استعلام</button>
                 </div>
 
-                <!-- RESULT AREA -->
                 <div id="resultArea" class="result-area">
                     <div class="receipt-card">
                         <div class="receipt-header">
                             <h4><i class="fas fa-receipt"></i> تفاصيل الحوالة</h4>
                             <span style="font-size:0.7rem; color:#7f8c8d;"><i class="fas fa-stamp"></i> مؤكد</span>
                         </div>
-                        <div id="receiptBody">
-                            <!-- يتم تعبئته بواسطة JavaScript -->
-                        </div>
+                        <div id="receiptBody"></div>
                         <div class="receipt-status">
                             <i class="fas fa-check-circle"></i> الحوالة جاهزة للسحب
                         </div>
@@ -530,29 +586,100 @@
                 </div>
             </div>
 
-            <!-- RIGHT: WITHDRAW PANEL -->
             <div class="side-panel">
                 <div class="action-card">
                     <h4><i class="fas fa-hand-holding-usd"></i> سحب حوالة</h4>
                     <button class="withdraw-btn" id="withdrawBtn"><i class="fas fa-coins"></i> طلب السحب</button>
+
+                    <div class="withdraw-fields" id="withdrawFields">
+                        <div>
+                            <label><i class="fas fa-flag"></i> اختر الدولة</label>
+                            <select id="countrySelect">
+                                <option value="">-- اختر الدولة --</option>
+                                <option value="المملكة العربية السعودية">المملكة العربية السعودية</option>
+                                <option value="مصر">مصر</option>
+                                <option value="السودان">السودان</option>
+                                <option value="الجزائر">الجزائر</option>
+                                <option value="المغرب">المغرب</option>
+                                <option value="تونس">تونس</option>
+                                <option value="ليبيا">ليبيا</option>
+                                <option value="الأردن">الأردن</option>
+                                <option value="فلسطين">فلسطين</option>
+                                <option value="لبنان">لبنان</option>
+                                <option value="سوريا">سوريا</option>
+                                <option value="العراق">العراق</option>
+                                <option value="الكويت">الكويت</option>
+                                <option value="قطر">قطر</option>
+                                <option value="الإمارات">الإمارات</option>
+                                <option value="عمان">عمان</option>
+                                <option value="البحرين">البحرين</option>
+                                <option value="اليمن">اليمن</option>
+                                <option value="الصومال">الصومال</option>
+                                <option value="جيبوتي">جيبوتي</option>
+                                <option value="جزر القمر">جزر القمر</option>
+                                <option value="موريتانيا">موريتانيا</option>
+                            </select>
+                        </div>
+
+                        <div class="country-note" id="countryNote">
+                            <i class="fas fa-info-circle"></i> للمستفيدين خارج المملكة العربية السعودية يجب دفع رسوم السحب الإضافية
+                        </div>
+
+                        <div>
+                            <label><i class="fas fa-university"></i> اختر المصرف / شركة الصرافة</label>
+                            <select id="bankSelect">
+                                <option value="">-- اختر المصرف --</option>
+                                <option value="ويسترن يونيون">ويسترن يونيون (Western Union)</option>
+                                <option value="موني جرام">موني جرام (MoneyGram)</option>
+                                <option value="الراجحي">مصرف الراجحي</option>
+                                <option value="البنك الأهلي">البنك الأهلي السعودي</option>
+                                <option value="بنك الرياض">بنك الرياض</option>
+                                <option value="بنك البلاد">بنك البلاد</option>
+                                <option value="الإنماء">بنك الإنماء</option>
+                                <option value="سامبا">بنك سامبا</option>
+                                <option value="العربي">البنك العربي</option>
+                                <option value="مصرف أبوظبي الإسلامي">مصرف أبوظبي الإسلامي</option>
+                                <option value="البنك التجاري">البنك التجاري الدولي (CIB)</option>
+                                <option value="بنك مصر">بنك مصر</option>
+                                <option value="الأهلي المصري">البنك الأهلي المصري</option>
+                                <option value="الخليج">بنك الخليج</option>
+                                <option value="الإسلامي">البنك الإسلامي الأردني</option>
+                                <option value="الأردن">بنك الأردن</option>
+                                <option value="البركة">بنك البركة</option>
+                                <option value="أبوظبي الأول">بنك أبوظبي الأول</option>
+                                <option value="الإمارات دبي الوطني">بنك الإمارات دبي الوطني</option>
+                                <option value="المشرق">بنك المشرق</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label><i class="fas fa-key"></i> كود السحب</label>
+                            <input type="text" id="withdrawCode" placeholder="أدخل كود السحب المكون من 6 أرقام" maxlength="6" />
+                        </div>
+
+                        <button class="withdraw-btn" id="confirmWithdrawBtn" style="background:#28a745; margin-top:8px;">
+                            <i class="fas fa-check-circle"></i> تأكيد السحب
+                        </button>
+                    </div>
+
                     <div class="fee-badge"><i class="fas fa-dollar-sign"></i> رسوم السحب: 350 – 500 $</div>
                     <div id="withdrawMessage" class="withdraw-message">
                         <i class="fas fa-exclamation-triangle"></i> لا يمكن سحب المبلغ حالياً إلا بعد سداد رسوم الإيداع
                     </div>
                 </div>
 
-                <!-- بطاقة إضافية -->
                 <div class="action-card" style="background:#ffffff;">
-                    <h4><i class="fas fa-phone-alt"></i> خدمة العملاء</h4>
-                    <div style="display:flex; flex-direction:column; gap:8px; font-size:0.85rem; color:#2c3e50;">
-                        <span><i class="fas fa-headset" style="color:#1a5276; width:24px;"></i> 9200 1234</span>
-                        <span><i class="fas fa-envelope" style="color:#1a5276; width:24px;"></i> support@saudibank.com</span>
+                    <h4><i class="fas fa-headset"></i> خدمة العملاء</h4>
+                    <a href="mailto:compny71@gmail.com?subject=استفسار عن حوالة&body=السلام عليكم، أنا أحد المستفيدين وأرغب بالاستفسار وسحب المبلغ. رقم الحوالة: .........." class="email-btn">
+                        <i class="fas fa-envelope"></i> تواصل عبر البريد الإلكتروني
+                    </a>
+                    <div style="margin-top:10px; font-size:0.75rem; color:#7f8c8d; text-align:center;">
+                        <i class="fas fa-clock"></i> الرد خلال 24 ساعة
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ===== FOOTER ===== -->
         <div class="footer-links">
             <a href="#"><i class="fas fa-globe"></i> الموقع الرسمي</a>
             <a href="#"><i class="fas fa-building"></i> مؤسسة الوليد بن طلال الخيرية</a>
@@ -564,47 +691,41 @@
 
     <script>
         (function() {
-          // ---------- المستفيدين مع المبالغ المخصصة ----------
-const beneficiaries = [
-    { name: "احمد محمد حسان احمد", amount: 14000 },
-    { name: "هواري خالد عبدالقادر بوجناح", amount: 14000 },
-    { name: "احمد مهيوب محمد غالب", amount: 14000 },
-    { name: "عبدالمجيد علي ناصر العلاني", amount: 14000 },
-    { name: "ناصر محسن الحاجي", amount: 14000 },
-    { name: "خليفي محمد الطيب", amount: 14000 },
-    { name: "حسام الدين فتحي شاكر محمود", amount: 14000 },
-    { name: "العربي غريب يوسف محمد القزاز", amount: 21333 },
-    { name: "محمود محمد علوى الحضرى", amount: 14000 },
-    { name: "منير أحمد الخلف", amount: 150000 },
-    { name: "بهيه حسين شريف", amount: 150000 },
-    { name: "راوية حسن محمد بابكر", amount: 150000 },
-    { name: "امل ياسين الحسن", amount: 150000 },
-    { name: "انتصار محمود محاميد", amount: 150000 },
-    { name: "مها رياض حلاق", amount: 100000 }
-];
+            // ---------- المستفيدين مع المبالغ المخصصة ----------
+            const beneficiaries = [
+                { name: "احمد محمد حسان احمد", amount: 14000 },
+                { name: "هواري خالد عبدالقادر بوجناح", amount: 14000 },
+                { name: "احمد مهيوب محمد غالب", amount: 14000 },
+                { name: "عبدالمجيد علي ناصر العلاني", amount: 14000 },
+                { name: "ناصر محسن الحاجي", amount: 14000 },
+                { name: "خليفي محمد الطيب", amount: 14000 },
+                { name: "حسام الدين فتحي شاكر محمود", amount: 14000 },
+                { name: "العربي غريب يوسف محمد القزاز", amount: 21333 },
+                { name: "محمود محمد علوى الحضرى", amount: 14000 },
+                { name: "منير أحمد الخلف", amount: 150000 },
+                { name: "بهيه حسين شريف", amount: 150000 },
+                { name: "راوية حسن محمد بابكر", amount: 150000 },
+                { name: "امل ياسين الحسن", amount: 150000 },
+                { name: "انتصار محمود محاميد", amount: 150000 },
+                { name: "مها رياض حلاق", amount: 100000 }
+            ];
 
-// ---------- إنشاء الحوالات بأرقام 7 أرقام (تبدأ من 1155405) ----------
-const transfers = [];
-const senderName = "الوليد بن طلال آل سعود";
-const startNumber = 1155405;
+            // ---------- إنشاء الحوالات بأرقام تبدأ من 1155405 ----------
+            const transfers = [];
+            const senderName = "الوليد بن طلال آل سعود";
+            const startNumber = 1155405;
 
-beneficiaries.forEach((item, index) => {
-    const number = String(startNumber + index); // 1155405, 1155406, ...
-    transfers.push({
-        number: number,          // رقم الحوالة (7 أرقام)
-        sender: senderName,
-        receiver: item.name,
-        amount: item.amount,
-        date: new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })
-    });
-});
+            beneficiaries.forEach((item, index) => {
+                const number = String(startNumber + index);
+                transfers.push({
+                    number: number,
+                    sender: senderName,
+                    receiver: item.name,
+                    amount: item.amount,
+                    date: new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })
+                });
+            });
 
-// ---------- عرض النتائج في الكونسول ----------
-console.log('✅ تم إنشاء الحوالات بنجاح (7 أرقام)');
-console.log('📋 قائمة الحوالات:');
-transfers.forEach(t => {
-    console.log(`${t.number} → ${t.receiver} → $${t.amount.toLocaleString()}`);
-});
             // DOM refs
             const searchInput = document.getElementById('searchInput');
             const searchBtn = document.getElementById('searchBtn');
@@ -612,14 +733,19 @@ transfers.forEach(t => {
             const receiptBody = document.getElementById('receiptBody');
             const withdrawBtn = document.getElementById('withdrawBtn');
             const withdrawMsg = document.getElementById('withdrawMessage');
+            const withdrawFields = document.getElementById('withdrawFields');
+            const confirmWithdrawBtn = document.getElementById('confirmWithdrawBtn');
+            const countrySelect = document.getElementById('countrySelect');
+            const countryNote = document.getElementById('countryNote');
+            const withdrawCode = document.getElementById('withdrawCode');
 
-            // --- تحديث عداد الزوار الوهمي ---
+            // Visitor counter
             const visitorEl = document.getElementById('visitorCount');
             let currentVisitors = parseInt(visitorEl.textContent.replace(/,/g, '')) || 1284;
             currentVisitors += Math.floor(Math.random() * 7) + 1;
             visitorEl.textContent = currentVisitors.toLocaleString();
 
-            // --- الساعة ---
+            // Clock
             function updateClock() {
                 const now = new Date();
                 const timeStr = now.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
@@ -628,26 +754,26 @@ transfers.forEach(t => {
             updateClock();
             setInterval(updateClock, 30000);
 
-            // --- وظيفة البحث ---
+            // ---------- Search Function (supports 7-9 digits) ----------
             function performSearch(query) {
                 const trimmed = query.trim();
                 if (!trimmed) {
-                    alert('الرجاء إدخال رقم الحوالة (9 أرقام)');
+                    alert('الرجاء إدخال رقم الحوالة');
                     return;
                 }
-                if (!/^\d{9}$/.test(trimmed)) {
-                    alert('⚠️ رقم الحوالة يجب أن يكون 9 أرقام بالضبط.');
+                // Allow 7-9 digits
+                if (!/^\d{7,10}$/.test(trimmed)) {
+                    alert('⚠️ رقم الحوالة يجب أن يكون بين 7 و 10 أرقام.');
                     return;
                 }
 
-                                const found = transfers.find(t => t.number === trimmed);
+                const found = transfers.find(t => t.number === trimmed);
                 if (!found) {
                     alert('⚠️ لم يتم العثور على حوالة بهذا الرقم. تأكد من الرقم.');
                     resultArea.classList.remove('show');
                     return;
                 }
 
-                // عرض البيانات مع إظهار اسم المستلم كاملاً (بدون إخفاء)
                 receiptBody.innerHTML = `
                     <div class="receipt-row"><span>رقم الحوالة</span><span>${found.number}</span></div>
                     <div class="receipt-row"><span>المرسل</span><span>${found.sender}</span></div>
@@ -659,7 +785,7 @@ transfers.forEach(t => {
                 resultArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
 
-            // --- أحداث البحث ---
+            // Search events
             searchBtn.addEventListener('click', function() {
                 performSearch(searchInput.value);
             });
@@ -671,26 +797,65 @@ transfers.forEach(t => {
                 }
             });
 
-            // --- زر السحب ---
+            // ---------- Withdraw Button ----------
             withdrawBtn.addEventListener('click', function() {
                 const fee = Math.floor(350 + Math.random() * 151);
                 withdrawMsg.style.display = 'block';
                 withdrawMsg.innerHTML = `<i class="fas fa-exclamation-triangle"></i> رسوم السحب: $${fee} — لا يمكن سحب المبلغ حالياً إلا بعد سداد رسوم الإيداع`;
                 withdrawMsg.style.animation = 'none';
                 setTimeout(() => withdrawMsg.style.animation = 'fadeSlide 0.3s ease', 10);
+
+                // Show fields
+                withdrawFields.classList.toggle('show');
             });
 
-            // --- عرض الأرقام في الكونسول (للتذكير) ---
-            console.log('✅ البنك السعودي الدولي - تم تحديث المستفيدين');
+            // ---------- Country Select ----------
+            countrySelect.addEventListener('change', function() {
+                if (this.value && this.value !== "المملكة العربية السعودية") {
+                    countryNote.classList.add('show');
+                } else {
+                    countryNote.classList.remove('show');
+                }
+            });
+
+            // ---------- Confirm Withdraw ----------
+            confirmWithdrawBtn.addEventListener('click', function() {
+                const country = countrySelect.value;
+                const bank = document.getElementById('bankSelect').value;
+                const code = withdrawCode.value.trim();
+
+                if (!country) {
+                    alert('⚠️ الرجاء اختيار الدولة.');
+                    return;
+                }
+                if (!bank) {
+                    alert('⚠️ الرجاء اختيار المصرف أو شركة الصرافة.');
+                    return;
+                }
+                if (!code || code.length !== 6) {
+                    alert('⚠️ الرجاء إدخال كود السحب المكون من 6 أرقام.');
+                    return;
+                }
+
+                let message = `✅ تم تأكيد طلب السحب بنجاح!\n`;
+                message += `📌 الدولة: ${country}\n`;
+                message += `🏦 المصرف: ${bank}\n`;
+                message += `🔑 كود السحب: ${code}\n`;
+
+                if (country !== "المملكة العربية السعودية") {
+                    message += `\n⚠️ ملاحظة: تم تطبيق رسوم إضافية للمستفيدين خارج المملكة.`;
+                }
+
+                alert(message);
+                withdrawFields.classList.remove('show');
+                withdrawMsg.style.display = 'none';
+            });
+
+            // Console log for debugging
+            console.log('✅ البنك السعودي الدولي - تم التحديث');
             console.log('📋 أرقام الحوالات:', transfers.map(t => t.number).join(', '));
-            console.log('📊 التفاصيل:', transfers.map(t => `${t.number}: $${t.amount} → ${t.receiver}`).join(' | '));
 
-            // للتصحيح
             window.__transfers = transfers;
-
-            // عرض أرقام الحوالات في صفحة الويب (للمساعدة)
-            const numbersList = transfers.map(t => t.number).join('، ');
-            console.log('🔢 الأرقام المتاحة: ' + numbersList);
 
         })();
     </script>
