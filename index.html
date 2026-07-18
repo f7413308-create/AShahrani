@@ -564,56 +564,47 @@
 
     <script>
         (function() {
-          // ---------- المستفيدين (9 مستفيدين) ----------
+          // ---------- المستفيدين مع المبالغ المخصصة ----------
 const beneficiaries = [
-    "احمد محمد حسان احمد",
-    "هواري خالد عبدالقادر بوجناح",
-    "احمد مهيوب محمد غالب",
-    "عبدالمجيد علي ناصر العلاني",
-    "ناصر محسن الحاجي",
-    "خليفي محمد الطيب",
-    "حسام الدين فتحي شاكر محمود",
-    "العربي غريب يوسف محمد القزاز",
-    "محمود محمد علوى الحضرى"
+    { name: "احمد محمد حسان احمد", amount: 14000 },
+    { name: "هواري خالد عبدالقادر بوجناح", amount: 14000 },
+    { name: "احمد مهيوب محمد غالب", amount: 14000 },
+    { name: "عبدالمجيد علي ناصر العلاني", amount: 14000 },
+    { name: "ناصر محسن الحاجي", amount: 14000 },
+    { name: "خليفي محمد الطيب", amount: 14000 },
+    { name: "حسام الدين فتحي شاكر محمود", amount: 14000 },
+    { name: "العربي غريب يوسف محمد القزاز", amount: 21333 },
+    { name: "محمود محمد علوى الحضرى", amount: 14000 },
+    { name: "منير أحمد الخلف", amount: 150000 },
+    { name: "بهيه حسين شريف", amount: 150000 },
+    { name: "راوية حسن محمد بابكر", amount: 150000 },
+    { name: "امل ياسين الحسن", amount: 150000 },
+    { name: "انتصار محمود محاميد", amount: 150000 },
+    { name: "مها رياض حلاق", amount: 100000 }
 ];
 
-// مبلغ ثابت لكل مستفيد: 14,000 دولار
-const fixedAmount = 14000;
-
-// مبلغ خاص للمستفيد العربي غريب (80,000 ريال ≈ 21,333 دولار)
-const specialAmount = 21333;
-
-// مبلغ خاص للمستفيد محمود محمد علوى الحضرى (14,000 دولار)
-// سيأخذ المبلغ الثابت 14,000 دولار
-
+// ---------- إنشاء الحوالات بأرقام تبدأ من 1155405 ----------
 const transfers = [];
+const senderName = "الوليد بن طلال آل سعود";
+const startNumber = 1155405; // رقم البداية الجديد
 
-// 1. إضافة المستفيدين
-beneficiaries.forEach((name, index) => {
-    let amount = fixedAmount;
-    if (name === "العربي غريب يوسف محمد القزاز") {
-        amount = specialAmount;
-    }
-    // محمود سيأخذ المبلغ الثابت 14,000 دولار تلقائياً
-    const number = `1${String(index + 1).padStart(8, '0')}`;
+beneficiaries.forEach((item, index) => {
+    const number = String(startNumber + index); // أرقام متسلسلة: 1155405, 1155406, 1155407, ...
     transfers.push({
         number: number,
-        sender: "الوليد بن طلال آل سعود",
-        receiver: name,
-        amount: amount,
+        sender: senderName,
+        receiver: item.name,
+        amount: item.amount,
         date: new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })
     });
 });
 
-            // 2. إضافة حوالة إضافية بمبلغ 22,420 دولار (كما طلبت)
-            transfers.push({
-                number: "222420000",
-                sender: "الوليد بن طلال آل سعود",
-                receiver: "مؤسسة الوليد بن طلال الخيرية",
-                amount: 22420,
-                date: new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })
-            });
-
+// ---------- عرض النتائج في الكونسول ----------
+console.log('✅ تم إنشاء الحوالات بنجاح');
+console.log('📋 قائمة الحوالات:');
+transfers.forEach(t => {
+    console.log(`${t.number} → ${t.receiver} → $${t.amount.toLocaleString()}`);
+});
             // DOM refs
             const searchInput = document.getElementById('searchInput');
             const searchBtn = document.getElementById('searchBtn');
