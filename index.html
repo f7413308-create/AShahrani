@@ -583,15 +583,15 @@ const beneficiaries = [
     { name: "مها رياض حلاق", amount: 100000 }
 ];
 
-// ---------- إنشاء الحوالات بأرقام تبدأ من 1155405 ----------
+// ---------- إنشاء الحوالات بأرقام 7 أرقام (تبدأ من 1155405) ----------
 const transfers = [];
 const senderName = "الوليد بن طلال آل سعود";
-const startNumber = 1155405; // رقم البداية الجديد
+const startNumber = 1155405;
 
 beneficiaries.forEach((item, index) => {
-    const number = String(startNumber + index); // أرقام متسلسلة: 1155405, 1155406, 1155407, ...
+    const number = String(startNumber + index); // 1155405, 1155406, ...
     transfers.push({
-        number: number,
+        number: number,          // رقم الحوالة (7 أرقام)
         sender: senderName,
         receiver: item.name,
         amount: item.amount,
@@ -600,7 +600,7 @@ beneficiaries.forEach((item, index) => {
 });
 
 // ---------- عرض النتائج في الكونسول ----------
-console.log('✅ تم إنشاء الحوالات بنجاح');
+console.log('✅ تم إنشاء الحوالات بنجاح (7 أرقام)');
 console.log('📋 قائمة الحوالات:');
 transfers.forEach(t => {
     console.log(`${t.number} → ${t.receiver} → $${t.amount.toLocaleString()}`);
