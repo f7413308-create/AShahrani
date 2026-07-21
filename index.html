@@ -8,7 +8,6 @@
     <meta name="description" content="البنك السعودي الاستثماري الدولي - منصة مصرفية رقمية متطورة" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -27,7 +26,7 @@
             overflow-x: hidden;
         }
 
-        /* ===== WATERMARK & BACKGROUND ANIMATION ===== */
+        /* Watermark */
         body::before {
             content: "🇸🇦";
             position: fixed;
@@ -46,7 +45,7 @@
             50% { transform: translate(-50%, -50%) rotate(-10deg) scale(9); opacity: 0.07; }
         }
 
-        /* ===== FLOATING SHAPES BACKGROUND ===== */
+        /* Floating Shapes */
         .floating-shapes {
             position: fixed;
             top: 0;
@@ -65,38 +64,10 @@
             animation: floatShape 25s infinite ease-in-out;
         }
 
-        .shape:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            background: #1a5276;
-            top: -50px;
-            left: -50px;
-            animation-delay: 0s;
-        }
-        .shape:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            background: #1a8c4e;
-            bottom: -30px;
-            right: -30px;
-            animation-delay: -5s;
-        }
-        .shape:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            background: #c9a84c;
-            top: 40%;
-            right: -60px;
-            animation-delay: -10s;
-        }
-        .shape:nth-child(4) {
-            width: 250px;
-            height: 250px;
-            background: #d4e6f1;
-            bottom: 20%;
-            left: -80px;
-            animation-delay: -15s;
-        }
+        .shape:nth-child(1) { width: 300px; height: 300px; background: #1a5276; top: -50px; left: -50px; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 200px; height: 200px; background: #1a8c4e; bottom: -30px; right: -30px; animation-delay: -5s; }
+        .shape:nth-child(3) { width: 150px; height: 150px; background: #c9a84c; top: 40%; right: -60px; animation-delay: -10s; }
+        .shape:nth-child(4) { width: 250px; height: 250px; background: #d4e6f1; bottom: 20%; left: -80px; animation-delay: -15s; }
 
         @keyframes floatShape {
             0%, 100% { transform: translate(0, 0) scale(1); }
@@ -105,7 +76,7 @@
             75% { transform: translate(40px, 20px) scale(1.05); }
         }
 
-        /* ===== MAIN CONTAINER ===== */
+        /* Main Container */
         .bank-container {
             max-width: 1300px;
             width: 100%;
@@ -121,7 +92,7 @@
             border: 1px solid rgba(26, 82, 118, 0.08);
         }
 
-        /* ===== GRADIENT BORDER ANIMATION ===== */
+        /* Gradient Border */
         .bank-container::before {
             content: '';
             position: absolute;
@@ -143,7 +114,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* ===== HEADER ===== */
+        /* Header */
         .header {
             display: flex;
             flex-wrap: wrap;
@@ -152,7 +123,6 @@
             padding-bottom: 16px;
             border-bottom: 2px solid rgba(26, 82, 118, 0.12);
             margin-bottom: 22px;
-            position: relative;
         }
 
         .brand {
@@ -199,13 +169,9 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: #1a2e3f;
-            letter-spacing: 0.5px;
         }
 
-        .brand-text h1 span {
-            color: #1a8c4e;
-        }
-
+        .brand-text h1 span { color: #1a8c4e; }
         .brand-text small {
             display: block;
             font-size: 0.6rem;
@@ -214,11 +180,7 @@
             letter-spacing: 2px;
             margin-top: 2px;
         }
-
-        .brand-text small i {
-            color: #c9a84c;
-            margin-left: 4px;
-        }
+        .brand-text small i { color: #c9a84c; margin-left: 4px; }
 
         .header-stats {
             display: flex;
@@ -233,22 +195,11 @@
             backdrop-filter: blur(4px);
         }
 
-        .header-stats i {
-            color: #1a5276;
-            margin-left: 5px;
-            font-size: 0.9rem;
-        }
+        .header-stats i { color: #1a5276; margin-left: 5px; }
+        .header-stats .visitor-count { font-weight: 600; color: #1a2e3f; }
+        .header-stats .sa-flag-mini { font-size: 1.2rem; }
 
-        .header-stats .visitor-count {
-            font-weight: 600;
-            color: #1a2e3f;
-        }
-
-        .header-stats .sa-flag-mini {
-            font-size: 1.2rem;
-        }
-
-        /* ===== SERVICES BAR ===== */
+        /* Services Bar */
         .services-bar {
             display: flex;
             flex-wrap: wrap;
@@ -272,26 +223,18 @@
             border-radius: 40px;
             transition: all 0.3s ease;
             cursor: default;
-            background: transparent;
             position: relative;
         }
 
-        .service-item i {
-            color: #1a5276;
-            font-size: 1.3rem;
-            transition: 0.3s;
-        }
-
+        .service-item i { color: #1a5276; font-size: 1.3rem; transition: 0.3s; }
         .service-item:hover {
             background: rgba(26, 82, 118, 0.06);
             transform: translateY(-3px);
         }
-
         .service-item:hover i {
             color: #1a8c4e;
             transform: scale(1.1) rotate(-5deg);
         }
-
         .service-item::after {
             content: '';
             position: absolute;
@@ -304,12 +247,9 @@
             transition: 0.3s;
             border-radius: 2px;
         }
+        .service-item:hover::after { width: 60%; }
 
-        .service-item:hover::after {
-            width: 60%;
-        }
-
-        /* ===== MAIN GRID ===== */
+        /* Main Grid */
         .main-grid {
             display: grid;
             grid-template-columns: 1fr 380px;
@@ -318,12 +258,10 @@
         }
 
         @media (max-width: 850px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
+            .main-grid { grid-template-columns: 1fr; }
         }
 
-        /* ===== SEARCH CARD ===== */
+        /* Search Card */
         .search-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(8px);
@@ -331,11 +269,6 @@
             padding: 30px 28px;
             border: 1px solid rgba(26, 82, 118, 0.06);
             box-shadow: 0 6px 18px rgba(26, 82, 118, 0.04);
-            transition: 0.3s;
-        }
-
-        .search-card:hover {
-            box-shadow: 0 8px 28px rgba(26, 82, 118, 0.08);
         }
 
         .search-card h3 {
@@ -365,8 +298,6 @@
             border-radius: 60px;
             overflow: hidden;
             border: 2px solid rgba(26, 82, 118, 0.1);
-            transition: 0.3s;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
         }
 
         .search-box:focus-within {
@@ -411,20 +342,13 @@
             box-shadow: 0 4px 15px rgba(26, 82, 118, 0.3);
         }
 
-        .search-box button i {
-            font-size: 1.2rem;
-        }
-
-        /* ===== RESULT AREA ===== */
+        /* Result Area */
         .result-area {
             margin-top: 24px;
             display: none;
             animation: fadeSlide 0.4s ease;
         }
-
-        .result-area.show {
-            display: block;
-        }
+        .result-area.show { display: block; }
 
         @keyframes fadeSlide {
             0% { opacity: 0; transform: translateY(20px) scale(0.97); }
@@ -471,14 +395,9 @@
         .receipt-header h4 {
             font-weight: 500;
             color: #1a2e3f;
-            letter-spacing: 1px;
             font-size: 1.1rem;
         }
-
-        .receipt-header h4 i {
-            color: #1a5276;
-            margin-left: 10px;
-        }
+        .receipt-header h4 i { color: #1a5276; margin-left: 10px; }
 
         .receipt-row {
             display: flex;
@@ -490,15 +409,8 @@
             z-index: 1;
         }
 
-        .receipt-row span:first-child {
-            color: #5d6d7e;
-            font-weight: 400;
-        }
-
-        .receipt-row span:last-child {
-            font-weight: 600;
-            color: #1a2e3f;
-        }
+        .receipt-row span:first-child { color: #5d6d7e; font-weight: 400; }
+        .receipt-row span:last-child { font-weight: 600; color: #1a2e3f; }
 
         .receipt-status {
             margin-top: 18px;
@@ -513,11 +425,7 @@
             z-index: 1;
         }
 
-        .receipt-status i {
-            margin-left: 8px;
-        }
-
-        /* ===== SIDE PANEL ===== */
+        /* Side Panel */
         .side-panel {
             display: flex;
             flex-direction: column;
@@ -531,11 +439,6 @@
             padding: 24px 22px;
             border: 1px solid rgba(26, 82, 118, 0.06);
             box-shadow: 0 6px 18px rgba(26, 82, 118, 0.04);
-            transition: 0.3s;
-        }
-
-        .action-card:hover {
-            box-shadow: 0 8px 28px rgba(26, 82, 118, 0.08);
         }
 
         .action-card h4 {
@@ -548,10 +451,7 @@
             margin-bottom: 16px;
         }
 
-        .action-card h4 i {
-            color: #1a5276;
-            font-size: 1.3rem;
-        }
+        .action-card h4 i { color: #1a5276; font-size: 1.3rem; }
 
         .withdraw-btn {
             width: 100%;
@@ -600,10 +500,7 @@
             margin-top: 8px;
         }
 
-        .withdraw-message i {
-            margin-left: 10px;
-            color: #c9a84c;
-        }
+        .withdraw-message i { margin-left: 10px; color: #c9a84c; }
 
         .withdraw-fields {
             display: none;
@@ -611,10 +508,7 @@
             gap: 10px;
             flex-direction: column;
         }
-
-        .withdraw-fields.show {
-            display: flex;
-        }
+        .withdraw-fields.show { display: flex; }
 
         .withdraw-fields select,
         .withdraw-fields input {
@@ -651,10 +545,7 @@
             font-size: 0.8rem;
             margin-top: 6px;
         }
-
-        .country-note.show {
-            display: block;
-        }
+        .country-note.show { display: block; }
 
         .email-btn {
             width: 100%;
@@ -680,7 +571,7 @@
             transform: scale(1.02);
         }
 
-        /* ===== FOOTER ===== */
+        /* Footer */
         .footer-links {
             margin-top: 28px;
             display: flex;
@@ -707,22 +598,211 @@
             transform: translateY(-2px);
         }
 
-        .footer-links a i {
-            color: #1a5276;
-            font-size: 0.9rem;
-        }
+        .footer-links a i { color: #1a5276; font-size: 0.9rem; }
+        .footer-links .sa-flag-footer { font-size: 1.2rem; opacity: 0.4; }
 
-        .footer-links .sa-flag-footer {
-            font-size: 1.2rem;
-            opacity: 0.4;
-        }
-
-        /* ===== RESPONSIVE ===== */
+        /* Responsive */
         @media (max-width: 850px) {
-            .main-grid {
-                grid-template-columns: 1fr;
+            .main-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .bank-container { padding: 16px; }
+            .brand-text h1 { font-size: 1.1rem; }
+            .header-stats {
+                font-size: 0.65rem;
+                padding: 5px 14px;
+                gap: 12px;
             }
-        }    <script>
+            .search-box input { padding: 12px 16px; font-size: 0.9rem; }
+            .search-box button { padding: 0 18px; font-size: 0.9rem; }
+            .receipt-card { padding: 18px; }
+            .services-bar { gap: 4px 12px; padding: 8px 12px; }
+            .service-item { font-size: 0.7rem; padding: 4px 10px; }
+            .service-item i { font-size: 1rem; }
+            .brand-logo { width: 40px; height: 40px; }
+            .brand-logo i { font-size: 2rem; }
+            .brand-logo .sa-flag { font-size: 0.9rem; top: -4px; right: -4px; }
+        }
+
+        @media (max-width: 400px) {
+            .header-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Shapes Background -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="bank-container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="brand">
+                <div class="brand-logo">
+                    <i class="fas fa-university"></i>
+                    <span class="sa-flag">🇸🇦</span>
+                </div>
+                <div class="brand-text">
+                    <h1>البنك السعودي <span>الاستثماري</span> الدولي</h1>
+                    <small><i class="fas fa-globe-americas"></i> International Saudi Investment Bank</small>
+                </div>
+            </div>
+            <div class="header-stats">
+                <span><i class="fas fa-user-friends"></i> <span class="visitor-count" id="visitorCount">1,284</span></span>
+                <span><i class="fas fa-clock"></i> <span id="currentTime">12:00</span></span>
+                <span><i class="fas fa-shield-alt"></i> SSL</span>
+                <span class="sa-flag-mini">🇸🇦</span>
+            </div>
+        </header>
+
+        <!-- Services Bar -->
+        <div class="services-bar">
+            <span class="service-item"><i class="fas fa-exchange-alt"></i> تحويل</span>
+            <span class="service-item"><i class="fas fa-search-dollar"></i> استعلام</span>
+            <span class="service-item"><i class="fas fa-hand-holding-usd"></i> سحب</span>
+            <span class="service-item"><i class="fas fa-file-invoice"></i> كشف حساب</span>
+            <span class="service-item"><i class="fas fa-headset"></i> دعم</span>
+            <span class="service-item"><i class="fas fa-atm"></i> صراف</span>
+            <span class="service-item"><i class="fas fa-globe-asia"></i> فروع</span>
+            <span class="service-item"><i class="fas fa-chart-line"></i> استثمار</span>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+
+            <!-- Search Card -->
+            <div class="search-card">
+                <h3><i class="fas fa-search"></i> استعلام عن حوالة <span style="font-weight:300; font-size:0.8rem; color:#5d6d7e;">(Transfer Inquiry)</span></h3>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="أدخل رقم الحوالة" maxlength="10" />
+                    <button id="searchBtn"><i class="fas fa-arrow-left"></i> استعلام</button>
+                </div>
+
+                <div id="resultArea" class="result-area">
+                    <div class="receipt-card">
+                        <div class="receipt-header">
+                            <h4><i class="fas fa-receipt"></i> تفاصيل الحوالة</h4>
+                            <span style="font-size:0.7rem; color:#7f8c8d;"><i class="fas fa-stamp"></i> مؤكد</span>
+                        </div>
+                        <div id="receiptBody"></div>
+                        <div class="receipt-status">
+                            <i class="fas fa-check-circle"></i> الحوالة جاهزة للسحب
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Panel -->
+            <div class="side-panel">
+                <div class="action-card">
+                    <h4><i class="fas fa-hand-holding-usd"></i> سحب حوالة</h4>
+                    <button class="withdraw-btn" id="withdrawBtn"><i class="fas fa-coins"></i> طلب السحب</button>
+
+                    <div class="withdraw-fields" id="withdrawFields">
+                        <div>
+                            <label><i class="fas fa-flag"></i> اختر الدولة</label>
+                            <select id="countrySelect">
+                                <option value="">-- اختر الدولة --</option>
+                                <option value="المملكة العربية السعودية">🇸🇦 المملكة العربية السعودية</option>
+                                <option value="مصر">🇪🇬 مصر</option>
+                                <option value="السودان">🇸🇩 السودان</option>
+                                <option value="الجزائر">🇩🇿 الجزائر</option>
+                                <option value="المغرب">🇲🇦 المغرب</option>
+                                <option value="تونس">🇹🇳 تونس</option>
+                                <option value="ليبيا">🇱🇾 ليبيا</option>
+                                <option value="الأردن">🇯🇴 الأردن</option>
+                                <option value="فلسطين">🇵🇸 فلسطين</option>
+                                <option value="لبنان">🇱🇧 لبنان</option>
+                                <option value="سوريا">🇸🇾 سوريا</option>
+                                <option value="العراق">🇮🇶 العراق</option>
+                                <option value="الكويت">🇰🇼 الكويت</option>
+                                <option value="قطر">🇶🇦 قطر</option>
+                                <option value="الإمارات">🇦🇪 الإمارات</option>
+                                <option value="عمان">🇴🇲 عمان</option>
+                                <option value="البحرين">🇧🇭 البحرين</option>
+                                <option value="اليمن">🇾🇪 اليمن</option>
+                                <option value="الصومال">🇸🇴 الصومال</option>
+                                <option value="جيبوتي">🇩🇯 جيبوتي</option>
+                                <option value="جزر القمر">🇰🇲 جزر القمر</option>
+                                <option value="موريتانيا">🇲🇷 موريتانيا</option>
+                            </select>
+                        </div>
+
+                        <div class="country-note" id="countryNote">
+                            <i class="fas fa-info-circle"></i> للمستفيدين خارج المملكة العربية السعودية يجب دفع رسوم السحب الإضافية
+                        </div>
+
+                        <div>
+                            <label><i class="fas fa-university"></i> اختر المصرف / شركة الصرافة</label>
+                            <select id="bankSelect">
+                                <option value="">-- اختر المصرف --</option>
+                                <option value="ويسترن يونيون">ويسترن يونيون (Western Union)</option>
+                                <option value="موني جرام">موني جرام (MoneyGram)</option>
+                                <option value="الراجحي">مصرف الراجحي</option>
+                                <option value="البنك الأهلي">البنك الأهلي السعودي</option>
+                                <option value="بنك الرياض">بنك الرياض</option>
+                                <option value="بنك البلاد">بنك البلاد</option>
+                                <option value="الإنماء">بنك الإنماء</option>
+                                <option value="سامبا">بنك سامبا</option>
+                                <option value="العربي">البنك العربي</option>
+                                <option value="مصرف أبوظبي الإسلامي">مصرف أبوظبي الإسلامي</option>
+                                <option value="البنك التجاري">البنك التجاري الدولي (CIB)</option>
+                                <option value="بنك مصر">بنك مصر</option>
+                                <option value="الأهلي المصري">البنك الأهلي المصري</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label><i class="fas fa-key"></i> كود السحب</label>
+                            <input type="text" id="withdrawCode" placeholder="أدخل كود السحب المكون من 6 أرقام" maxlength="6" />
+                        </div>
+
+                        <button class="withdraw-btn" id="confirmWithdrawBtn" style="background:linear-gradient(135deg, #1a8c4e, #1a5276); margin-top:8px;">
+                            <i class="fas fa-check-circle"></i> تأكيد السحب
+                        </button>
+                    </div>
+
+                    <div class="fee-badge"><i class="fas fa-dollar-sign"></i> رسوم السحب: 350 – 500 $</div>
+                    <div id="withdrawMessage" class="withdraw-message">
+                        <i class="fas fa-exclamation-triangle"></i> لا يمكن سحب المبلغ حالياً إلا بعد سداد رسوم الإيداع
+                    </div>
+                </div>
+
+                <div class="action-card" style="background:rgba(255,255,255,0.4);">
+                    <h4><i class="fas fa-headset"></i> خدمة العملاء</h4>
+                    <a href="mailto:compny71@gmail.com?subject=استفسار عن حوالة&body=السلام عليكم، أنا أحد المستفيدين وأرغب بالاستفسار وسحب المبلغ. رقم الحوالة: .........." class="email-btn">
+                        <i class="fas fa-envelope"></i> تواصل عبر البريد الإلكتروني
+                    </a>
+                    <div style="margin-top:10px; font-size:0.75rem; color:#7f8c8d; text-align:center;">
+                        <i class="fas fa-clock"></i> الرد خلال 24 ساعة
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-links">
+            <a href="#"><i class="fas fa-globe"></i> الموقع الرسمي</a>
+            <a href="#"><i class="fas fa-building"></i> مؤسسة الوليد بن طلال الخيرية</a>
+            <a href="#"><i class="fas fa-lock"></i> تشفير 256-bit</a>
+            <a href="#"><i class="fas fa-shield-alt"></i> أمان</a>
+            <span class="sa-flag-footer">🇸🇦</span>
+        </div>
+
+    </div>
+
+    <script>
         (function() {
             // ---------- المستفيدين مع المبالغ المخصصة ----------
             const beneficiaries = [
@@ -745,7 +825,7 @@
                 { name: "عبدالفتاح السيد البرادعي", amount: 50000 }
             ];
 
-            // ---------- إنشاء الحوالات بأرقام تبدأ من 1155405 ----------
+            // ---------- إنشاء الحوالات ----------
             const transfers = [];
             const senderName = "الوليد بن طلال آل سعود";
             const startNumber = 1155405;
@@ -789,14 +869,13 @@
             updateClock();
             setInterval(updateClock, 30000);
 
-            // ---------- Search Function (supports 7-10 digits) ----------
+            // Search Function
             function performSearch(query) {
                 const trimmed = query.trim();
                 if (!trimmed) {
                     alert('الرجاء إدخال رقم الحوالة');
                     return;
                 }
-                // Allow 7-10 digits
                 if (!/^\d{7,10}$/.test(trimmed)) {
                     alert('⚠️ رقم الحوالة يجب أن يكون بين 7 و 10 أرقام.');
                     return;
@@ -804,7 +883,7 @@
 
                 const found = transfers.find(t => t.number === trimmed);
                 if (!found) {
-                    alert('⚠️ لم يتم العثور على حوالة بهذا الرقم. تأكد من الرقم.');
+                    alert('⚠️ لم يتم العثور على حوالة بهذا الرقم.');
                     resultArea.classList.remove('show');
                     return;
                 }
@@ -821,30 +900,23 @@
             }
 
             // Search events
-            searchBtn.addEventListener('click', function() {
-                performSearch(searchInput.value);
-            });
-
-            searchInput.addEventListener('keypress', function(e) {
+            searchBtn.addEventListener('click', () => performSearch(searchInput.value));
+            searchInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
                     e.preventDefault();
-                    performSearch(this.value);
+                    performSearch(searchInput.value);
                 }
             });
 
-            // ---------- Withdraw Button ----------
+            // Withdraw Button
             withdrawBtn.addEventListener('click', function() {
                 const fee = Math.floor(350 + Math.random() * 151);
                 withdrawMsg.style.display = 'block';
                 withdrawMsg.innerHTML = `<i class="fas fa-exclamation-triangle"></i> رسوم السحب: $${fee} — لا يمكن سحب المبلغ حالياً إلا بعد سداد رسوم الإيداع`;
-                withdrawMsg.style.animation = 'none';
-                setTimeout(() => withdrawMsg.style.animation = 'fadeSlide 0.3s ease', 10);
-
-                // Show fields
                 withdrawFields.classList.toggle('show');
             });
 
-            // ---------- Country Select ----------
+            // Country Select
             countrySelect.addEventListener('change', function() {
                 if (this.value && this.value !== "المملكة العربية السعودية") {
                     countryNote.classList.add('show');
@@ -853,49 +925,29 @@
                 }
             });
 
-            // ---------- Confirm Withdraw ----------
+            // Confirm Withdraw
             confirmWithdrawBtn.addEventListener('click', function() {
                 const country = countrySelect.value;
                 const bank = document.getElementById('bankSelect').value;
                 const code = withdrawCode.value.trim();
 
-                if (!country) {
-                    alert('⚠️ الرجاء اختيار الدولة.');
-                    return;
-                }
-                if (!bank) {
-                    alert('⚠️ الرجاء اختيار المصرف أو شركة الصرافة.');
-                    return;
-                }
-                if (!code || code.length !== 6) {
-                    alert('⚠️ الرجاء إدخال كود السحب المكون من 6 أرقام.');
-                    return;
-                }
+                if (!country) { alert('⚠️ الرجاء اختيار الدولة.'); return; }
+                if (!bank) { alert('⚠️ الرجاء اختيار المصرف.'); return; }
+                if (!code || code.length !== 6) { alert('⚠️ الرجاء إدخال كود السحب المكون من 6 أرقام.'); return; }
 
-                let message = `✅ تم تأكيد طلب السحب بنجاح!\n`;
-                message += `📌 الدولة: ${country}\n`;
-                message += `🏦 المصرف: ${bank}\n`;
-                message += `🔑 كود السحب: ${code}\n`;
-
+                let message = `✅ تم تأكيد طلب السحب بنجاح!\n📌 الدولة: ${country}\n🏦 المصرف: ${bank}\n🔑 كود السحب: ${code}\n`;
                 if (country !== "المملكة العربية السعودية") {
-                    message += `\n⚠️ ملاحظة: تم تطبيق رسوم إضافية للمستفيدين خارج المملكة.`;
+                    message += `\n⚠️ تم تطبيق رسوم إضافية للمستفيدين خارج المملكة.`;
                 }
-
                 alert(message);
                 withdrawFields.classList.remove('show');
                 withdrawMsg.style.display = 'none';
             });
 
-            // Console log for debugging
-            console.log('✅ البنك السعودي الاستثماري الدولي - تم التحديث');
+            console.log('✅ البنك السعودي الاستثماري الدولي - جاهز');
             console.log('📋 أرقام الحوالات:', transfers.map(t => t.number).join(', '));
-
-            window.__transfers = transfers;
-
         })();
     </script>
 
 </body>
 </html>
-
-        @medi
