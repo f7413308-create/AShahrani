@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> البنك السعودي الاستثماري الدولي | International Saudi investment Bank</title>
+    <title>البنك السعودي الاستثماري الدولي | International Saudi Investment Bank</title>
     <meta name="google-site-verification" content="zS7tKdnzcEMlMruQYEiw7v82ApooCCWPP75m9qOf5R8" />
     <meta name="description" content="البنك السعودي الاستثماري الدولي - منصة مصرفية رقمية متطورة" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
+        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -16,32 +17,142 @@
         }
 
         body {
-            background: #f5f0eb;
             min-height: 100vh;
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
+            background: #f5f0eb;
+            position: relative;
+            overflow-x: hidden;
         }
 
+        /* ===== WATERMARK & BACKGROUND ANIMATION ===== */
+        body::before {
+            content: "🇸🇦";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg) scale(8);
+            font-size: 20rem;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 0;
+            animation: floatWatermark 20s ease-in-out infinite;
+        }
+
+        @keyframes floatWatermark {
+            0%, 100% { transform: translate(-50%, -50%) rotate(-15deg) scale(8); opacity: 0.04; }
+            50% { transform: translate(-50%, -50%) rotate(-10deg) scale(9); opacity: 0.07; }
+        }
+
+        /* ===== FLOATING SHAPES BACKGROUND ===== */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.06;
+            animation: floatShape 25s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: #1a5276;
+            top: -50px;
+            left: -50px;
+            animation-delay: 0s;
+        }
+        .shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            background: #1a8c4e;
+            bottom: -30px;
+            right: -30px;
+            animation-delay: -5s;
+        }
+        .shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            background: #c9a84c;
+            top: 40%;
+            right: -60px;
+            animation-delay: -10s;
+        }
+        .shape:nth-child(4) {
+            width: 250px;
+            height: 250px;
+            background: #d4e6f1;
+            bottom: 20%;
+            left: -80px;
+            animation-delay: -15s;
+        }
+
+        @keyframes floatShape {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -40px) scale(1.1); }
+            50% { transform: translate(-20px, 30px) scale(0.9); }
+            75% { transform: translate(40px, 20px) scale(1.05); }
+        }
+
+        /* ===== MAIN CONTAINER ===== */
         .bank-container {
             max-width: 1300px;
             width: 100%;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             border-radius: 48px 48px 32px 32px;
             padding: 28px 32px 35px;
-            box-shadow: 0 20px 50px rgba(0, 20, 40, 0.12), 0 0 0 1px rgba(0, 50, 100, 0.04);
-            transition: all 0.25s;
+            box-shadow: 0 20px 50px rgba(26, 82, 118, 0.15), 0 0 0 1px rgba(26, 82, 118, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(26, 82, 118, 0.08);
         }
 
+        /* ===== GRADIENT BORDER ANIMATION ===== */
+        .bank-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 50px 50px 34px 34px;
+            background: linear-gradient(45deg, #1a5276, #1a8c4e, #c9a84c, #1a5276);
+            background-size: 400% 400%;
+            z-index: -1;
+            animation: gradientBorder 8s ease infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes gradientBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ===== HEADER ===== */
         .header {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
             padding-bottom: 16px;
-            border-bottom: 2px solid #e8e0d8;
+            border-bottom: 2px solid rgba(26, 82, 118, 0.12);
             margin-bottom: 22px;
+            position: relative;
         }
 
         .brand {
@@ -50,26 +161,63 @@
             gap: 14px;
         }
 
-        .brand i {
-            font-size: 2.6rem;
-            color: #1a5276;
-            filter: drop-shadow(0 2px 8px rgba(26, 82, 118, 0.15));
+        .brand-logo {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulseLogo 3s ease-in-out infinite;
         }
 
-        .brand h1 {
-            font-size: 1.7rem;
+        .brand-logo i {
+            font-size: 2.8rem;
+            color: #1a5276;
+            filter: drop-shadow(0 2px 12px rgba(26, 82, 118, 0.2));
+        }
+
+        .brand-logo .sa-flag {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 1.2rem;
+            animation: spinFlag 6s linear infinite;
+        }
+
+        @keyframes spinFlag {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulseLogo {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .brand-text h1 {
+            font-size: 1.5rem;
             font-weight: 700;
             color: #1a2e3f;
             letter-spacing: 0.5px;
         }
 
-        .brand h1 small {
+        .brand-text h1 span {
+            color: #1a8c4e;
+        }
+
+        .brand-text small {
             display: block;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 400;
             color: #7f8c8d;
             letter-spacing: 2px;
             margin-top: 2px;
+        }
+
+        .brand-text small i {
+            color: #c9a84c;
+            margin-left: 4px;
         }
 
         .header-stats {
@@ -78,10 +226,11 @@
             gap: 22px;
             color: #4a5b66;
             font-size: 0.8rem;
-            background: #f8f4f0;
+            background: rgba(255, 255, 255, 0.6);
             padding: 8px 22px;
             border-radius: 60px;
-            border: 1px solid #e8e0d8;
+            border: 1px solid rgba(26, 82, 118, 0.08);
+            backdrop-filter: blur(4px);
         }
 
         .header-stats i {
@@ -95,16 +244,22 @@
             color: #1a2e3f;
         }
 
+        .header-stats .sa-flag-mini {
+            font-size: 1.2rem;
+        }
+
+        /* ===== SERVICES BAR ===== */
         .services-bar {
             display: flex;
             flex-wrap: wrap;
             gap: 8px 20px;
             justify-content: center;
             margin-bottom: 30px;
-            background: #faf7f4;
+            background: rgba(255, 255, 255, 0.5);
             padding: 12px 24px;
             border-radius: 60px;
-            border: 1px solid #e8e0d8;
+            border: 1px solid rgba(26, 82, 118, 0.06);
+            backdrop-filter: blur(4px);
         }
 
         .service-item {
@@ -115,27 +270,46 @@
             font-size: 0.85rem;
             padding: 6px 14px;
             border-radius: 40px;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
             cursor: default;
             background: transparent;
+            position: relative;
         }
 
         .service-item i {
             color: #1a5276;
             font-size: 1.3rem;
-            transition: 0.2s;
+            transition: 0.3s;
         }
 
         .service-item:hover {
-            background: #eef4fa;
+            background: rgba(26, 82, 118, 0.06);
             transform: translateY(-3px);
         }
 
         .service-item:hover i {
-            color: #154360;
-            transform: scale(1.05);
+            color: #1a8c4e;
+            transform: scale(1.1) rotate(-5deg);
         }
 
+        .service-item::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #1a5276, #1a8c4e);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .service-item:hover::after {
+            width: 60%;
+        }
+
+        /* ===== MAIN GRID ===== */
         .main-grid {
             display: grid;
             grid-template-columns: 1fr 380px;
@@ -149,12 +323,19 @@
             }
         }
 
+        /* ===== SEARCH CARD ===== */
         .search-card {
-            background: #faf7f4;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
             border-radius: 40px;
             padding: 30px 28px;
-            border: 1px solid #e8e0d8;
-            box-shadow: 0 6px 18px rgba(0, 20, 40, 0.04);
+            border: 1px solid rgba(26, 82, 118, 0.06);
+            box-shadow: 0 6px 18px rgba(26, 82, 118, 0.04);
+            transition: 0.3s;
+        }
+
+        .search-card:hover {
+            box-shadow: 0 8px 28px rgba(26, 82, 118, 0.08);
         }
 
         .search-card h3 {
@@ -170,6 +351,12 @@
         .search-card h3 i {
             color: #1a5276;
             font-size: 1.5rem;
+            animation: pulseIcon 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseIcon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .search-box {
@@ -177,8 +364,8 @@
             background: #ffffff;
             border-radius: 60px;
             overflow: hidden;
-            border: 2px solid #d5d0ca;
-            transition: 0.25s;
+            border: 2px solid rgba(26, 82, 118, 0.1);
+            transition: 0.3s;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
         }
 
@@ -206,13 +393,13 @@
         }
 
         .search-box button {
-            background: #1a5276;
+            background: linear-gradient(135deg, #1a5276, #1a8c4e);
             border: none;
             padding: 0 32px;
             color: #ffffff;
             font-size: 1.1rem;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.3s;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -220,38 +407,65 @@
         }
 
         .search-box button:hover {
-            background: #154360;
             transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(26, 82, 118, 0.3);
         }
 
         .search-box button i {
             font-size: 1.2rem;
         }
 
+        /* ===== RESULT AREA ===== */
         .result-area {
             margin-top: 24px;
             display: none;
-            animation: fadeSlide 0.35s ease;
+            animation: fadeSlide 0.4s ease;
         }
 
         .result-area.show {
             display: block;
         }
 
+        @keyframes fadeSlide {
+            0% { opacity: 0; transform: translateY(20px) scale(0.97); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
         .receipt-card {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
             border-radius: 32px;
             padding: 28px 30px;
-            border: 1px solid #d5d0ca;
-            box-shadow: 0 8px 24px rgba(0, 20, 40, 0.06);
+            border: 1px solid rgba(26, 82, 118, 0.08);
+            box-shadow: 0 8px 24px rgba(26, 82, 118, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .receipt-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(26, 130, 78, 0.03), transparent 70%);
+            animation: shimmer 6s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20%, -20%); }
         }
 
         .receipt-header {
             display: flex;
             justify-content: space-between;
-            border-bottom: 2px solid #e8e0d8;
+            border-bottom: 2px solid rgba(26, 82, 118, 0.08);
             padding-bottom: 14px;
             margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
         }
 
         .receipt-header h4 {
@@ -270,8 +484,10 @@
             display: flex;
             justify-content: space-between;
             padding: 10px 0;
-            border-bottom: 1px dashed #e8e0d8;
+            border-bottom: 1px dashed rgba(26, 82, 118, 0.06);
             font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
         }
 
         .receipt-row span:first-child {
@@ -287,18 +503,21 @@
         .receipt-status {
             margin-top: 18px;
             text-align: center;
-            color: #1a5276;
+            color: #1a8c4e;
             font-weight: 500;
             font-size: 0.9rem;
-            background: #eaf2f8;
+            background: rgba(26, 140, 78, 0.06);
             padding: 10px;
             border-radius: 40px;
+            position: relative;
+            z-index: 1;
         }
 
         .receipt-status i {
             margin-left: 8px;
         }
 
+        /* ===== SIDE PANEL ===== */
         .side-panel {
             display: flex;
             flex-direction: column;
@@ -306,11 +525,17 @@
         }
 
         .action-card {
-            background: #faf7f4;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
             border-radius: 40px;
             padding: 24px 22px;
-            border: 1px solid #e8e0d8;
-            box-shadow: 0 6px 18px rgba(0, 20, 40, 0.04);
+            border: 1px solid rgba(26, 82, 118, 0.06);
+            box-shadow: 0 6px 18px rgba(26, 82, 118, 0.04);
+            transition: 0.3s;
+        }
+
+        .action-card:hover {
+            box-shadow: 0 8px 28px rgba(26, 82, 118, 0.08);
         }
 
         .action-card h4 {
@@ -332,13 +557,13 @@
             width: 100%;
             padding: 16px;
             border-radius: 60px;
-            background: #1a5276;
+            background: linear-gradient(135deg, #1a5276, #1a8c4e);
             border: none;
             color: #ffffff;
             font-weight: 600;
             font-size: 1.05rem;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -347,30 +572,29 @@
         }
 
         .withdraw-btn:hover {
-            background: #154360;
             transform: scale(1.02);
-            box-shadow: 0 8px 20px rgba(26, 82, 118, 0.3);
+            box-shadow: 0 8px 24px rgba(26, 82, 118, 0.3);
         }
 
         .fee-badge {
-            background: #eaf2f8;
+            background: rgba(26, 82, 118, 0.06);
             padding: 10px 16px;
             border-radius: 60px;
             font-size: 0.8rem;
             color: #1a5276;
-            border: 1px solid #d5d0ca;
+            border: 1px solid rgba(26, 82, 118, 0.08);
             text-align: center;
             margin-top: 4px;
         }
 
         .withdraw-message {
             display: none;
-            background: #fef9f0;
+            background: rgba(201, 168, 76, 0.08);
             padding: 14px 18px;
             border-radius: 30px;
             color: #a67c4b;
             font-weight: 500;
-            border: 1px solid #e8d5b8;
+            border: 1px solid rgba(201, 168, 76, 0.15);
             text-align: center;
             font-size: 0.85rem;
             margin-top: 8px;
@@ -378,7 +602,7 @@
 
         .withdraw-message i {
             margin-left: 10px;
-            color: #b8860b;
+            color: #c9a84c;
         }
 
         .withdraw-fields {
@@ -396,12 +620,12 @@
         .withdraw-fields input {
             padding: 12px 16px;
             border-radius: 30px;
-            border: 2px solid #d5d0ca;
+            border: 2px solid rgba(26, 82, 118, 0.1);
             background: #ffffff;
             font-size: 0.9rem;
             color: #1a2e3f;
             outline: none;
-            transition: 0.2s;
+            transition: 0.3s;
             width: 100%;
         }
 
@@ -419,10 +643,10 @@
 
         .country-note {
             display: none;
-            background: #fef9f0;
+            background: rgba(201, 168, 76, 0.06);
             padding: 12px 16px;
             border-radius: 20px;
-            border: 1px solid #e8d5b8;
+            border: 1px solid rgba(201, 168, 76, 0.12);
             color: #a67c4b;
             font-size: 0.8rem;
             margin-top: 6px;
@@ -436,13 +660,13 @@
             width: 100%;
             padding: 14px;
             border-radius: 60px;
-            background: #eaf2f8;
+            background: rgba(26, 82, 118, 0.06);
             border: 2px solid #1a5276;
             color: #1a5276;
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -456,13 +680,14 @@
             transform: scale(1.02);
         }
 
+        /* ===== FOOTER ===== */
         .footer-links {
             margin-top: 28px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 25px 40px;
-            border-top: 2px solid #e8e0d8;
+            border-top: 2px solid rgba(26, 82, 118, 0.06);
             padding-top: 24px;
             color: #5d6d7e;
             font-size: 0.8rem;
@@ -474,7 +699,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: 0.2s;
+            transition: 0.3s;
         }
 
         .footer-links a:hover {
@@ -487,229 +712,43 @@
             font-size: 0.9rem;
         }
 
-        @keyframes fadeSlide {
-            0% {
-                opacity: 0;
-                transform: translateY(16px) scale(0.97);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
+        .footer-links .sa-flag-footer {
+            font-size: 1.2rem;
+            opacity: 0.4;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 850px) {
+            .main-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 600px) {
-            .bank-container {
-                padding: 16px;
-            }
-            .brand h1 {
-                font-size: 1.2rem;
-            }
-            .header-stats {
-                font-size: 0.65rem;
-                padding: 5px 14px;
-                gap: 12px;
-            }
-            .search-box input {
-                padding: 12px 16px;
-                font-size: 0.9rem;
-            }
-            .search-box button {
-                padding: 0 18px;
-                font-size: 0.9rem;
-            }
-            .receipt-card {
-                padding: 18px;
-            }
-            .services-bar {
-                gap: 4px 12px;
-                padding: 8px 12px;
-            }
-            .service-item {
-                font-size: 0.7rem;
-                padding: 4px 10px;
-            }
-            .service-item i {
-                font-size: 1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="bank-container">
-
-        <header class="header">
-            <div class="brand">
-                <i class="fas fa-university"></i>
-                <div>
-                    <h1>البنك السعودي الاستثماري الدولي <small>International Saudi Bank</small></h1>
-                </div>
-            </div>
-            <div class="header-stats">
-                <span><i class="fas fa-user-friends"></i> <span class="visitor-count" id="visitorCount">1,284</span></span>
-                <span><i class="fas fa-clock"></i> <span id="currentTime">12:00</span></span>
-                <span><i class="fas fa-shield-alt"></i> SSL</span>
-            </div>
-        </header>
-
-        <div class="services-bar">
-            <span class="service-item"><i class="fas fa-exchange-alt"></i> تحويل</span>
-            <span class="service-item"><i class="fas fa-search-dollar"></i> استعلام</span>
-            <span class="service-item"><i class="fas fa-hand-holding-usd"></i> سحب</span>
-            <span class="service-item"><i class="fas fa-file-invoice"></i> كشف حساب</span>
-            <span class="service-item"><i class="fas fa-headset"></i> دعم</span>
-            <span class="service-item"><i class="fas fa-atm"></i> صراف</span>
-            <span class="service-item"><i class="fas fa-globe-asia"></i> فروع</span>
-        </div>
-
-        <div class="main-grid">
-
-            <div class="search-card">
-                <h3><i class="fas fa-search"></i> استعلام عن حوالة <span style="font-weight:300; font-size:0.8rem; color:#5d6d7e;">(Transfer Inquiry)</span></h3>
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="أدخل رقم الحوالة" maxlength="10" />
-                    <button id="searchBtn"><i class="fas fa-arrow-left"></i> استعلام</button>
-                </div>
-
-                <div id="resultArea" class="result-area">
-                    <div class="receipt-card">
-                        <div class="receipt-header">
-                            <h4><i class="fas fa-receipt"></i> تفاصيل الحوالة</h4>
-                            <span style="font-size:0.7rem; color:#7f8c8d;"><i class="fas fa-stamp"></i> مؤكد</span>
-                        </div>
-                        <div id="receiptBody"></div>
-                        <div class="receipt-status">
-                            <i class="fas fa-check-circle"></i> الحوالة جاهزة للسحب
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="side-panel">
-                <div class="action-card">
-                    <h4><i class="fas fa-hand-holding-usd"></i> سحب حوالة</h4>
-                    <button class="withdraw-btn" id="withdrawBtn"><i class="fas fa-coins"></i> طلب السحب</button>
-
-                    <div class="withdraw-fields" id="withdrawFields">
-                        <div>
-                            <label><i class="fas fa-flag"></i> اختر الدولة</label>
-                            <select id="countrySelect">
-                                <option value="">-- اختر الدولة --</option>
-                                <option value="المملكة العربية السعودية">المملكة العربية السعودية</option>
-                                <option value="مصر">مصر</option>
-                                <option value="السودان">السودان</option>
-                                <option value="الجزائر">الجزائر</option>
-                                <option value="المغرب">المغرب</option>
-                                <option value="تونس">تونس</option>
-                                <option value="ليبيا">ليبيا</option>
-                                <option value="الأردن">الأردن</option>
-                                <option value="فلسطين">فلسطين</option>
-                                <option value="لبنان">لبنان</option>
-                                <option value="سوريا">سوريا</option>
-                                <option value="العراق">العراق</option>
-                                <option value="الكويت">الكويت</option>
-                                <option value="قطر">قطر</option>
-                                <option value="الإمارات">الإمارات</option>
-                                <option value="عمان">عمان</option>
-                                <option value="البحرين">البحرين</option>
-                                <option value="اليمن">اليمن</option>
-                                <option value="الصومال">الصومال</option>
-                                <option value="جيبوتي">جيبوتي</option>
-                                <option value="جزر القمر">جزر القمر</option>
-                                <option value="موريتانيا">موريتانيا</option>
-                            </select>
-                        </div>
-
-                        <div class="country-note" id="countryNote">
-                            <i class="fas fa-info-circle"></i> للمستفيدين خارج المملكة العربية السعودية يجب دفع رسوم السحب الإضافية
-                        </div>
-
-                        <div>
-                            <label><i class="fas fa-university"></i> اختر المصرف / شركة الصرافة</label>
-                            <select id="bankSelect">
-                                <option value="">-- اختر المصرف --</option>
-                                <option value="ويسترن يونيون">ويسترن يونيون (Western Union)</option>
-                                <option value="موني جرام">موني جرام (MoneyGram)</option>
-                                <option value="الراجحي">مصرف الراجحي</option>
-                                <option value="البنك الأهلي">البنك الأهلي السعودي</option>
-                                <option value="بنك الرياض">بنك الرياض</option>
-                                <option value="بنك البلاد">بنك البلاد</option>
-                                <option value="الإنماء">بنك الإنماء</option>
-                                <option value="سامبا">بنك سامبا</option>
-                                <option value="العربي">البنك العربي</option>
-                                <option value="مصرف أبوظبي الإسلامي">مصرف أبوظبي الإسلامي</option>
-                                <option value="البنك التجاري">البنك التجاري الدولي (CIB)</option>
-                                <option value="بنك مصر">بنك مصر</option>
-                                <option value="الأهلي المصري">البنك الأهلي المصري</option>
-                                <option value="الخليج">بنك الخليج</option>
-                                <option value="الإسلامي">البنك الإسلامي الأردني</option>
-                                <option value="الأردن">بنك الأردن</option>
-                                <option value="البركة">بنك البركة</option>
-                                <option value="أبوظبي الأول">بنك أبوظبي الأول</option>
-                                <option value="الإمارات دبي الوطني">بنك الإمارات دبي الوطني</option>
-                                <option value="المشرق">بنك المشرق</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label><i class="fas fa-key"></i> كود السحب</label>
-                            <input type="text" id="withdrawCode" placeholder="أدخل كود السحب المكون من 6 أرقام" maxlength="6" />
-                        </div>
-
-                        <button class="withdraw-btn" id="confirmWithdrawBtn" style="background:#28a745; margin-top:8px;">
-                            <i class="fas fa-check-circle"></i> تأكيد السحب
-                        </button>
-                    </div>
-
-                    <div class="fee-badge"><i class="fas fa-dollar-sign"></i> رسوم السحب: 350 – 500 $</div>
-                    <div id="withdrawMessage" class="withdraw-message">
-                        <i class="fas fa-exclamation-triangle"></i> لا يمكن سحب المبلغ حالياً إلا بعد سداد رسوم الإيداع
-                    </div>
-                </div>
-
-                <div class="action-card" style="background:#ffffff;">
-                    <h4><i class="fas fa-headset"></i> خدمة العملاء</h4>
-                    <a href="mailto:compny71@gmail.com?subject=استفسار عن حوالة&body=السلام عليكم، أنا أحد المستفيدين وأرغب بالاستفسار وسحب المبلغ. رقم الحوالة: .........." class="email-btn">
-                        <i class="fas fa-envelope"></i> تواصل عبر البريد الإلكتروني
-                    </a>
-                    <div style="margin-top:10px; font-size:0.75rem; color:#7f8c8d; text-align:center;">
-                        <i class="fas fa-clock"></i> الرد خلال 24 ساعة
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-links">
-            <a href="#"><i class="fas fa-globe"></i> الموقع الرسمي</a>
-            <a href="#"><i class="fas fa-building"></i> مؤسسة الوليد بن طلال الخيرية</a>
-            <a href="#"><i class="fas fa-lock"></i> تشفير 256-bit</a>
-            <a href="#"><i class="fas fa-shield-alt"></i> أمان</a>
-        </div>
-
-    </div>
-
+        @medi
     <script>
-        (function() {// ---------- المستفيدين مع المبالغ المخصصة ----------
-const beneficiaries = [
-    { name: "احمد محمد حسان احمد", amount: 14000 },
-    { name: "هواري خالد عبدالقادر بوجناح", amount: 14000 },
-    { name: "احمد مهيوب محمد غالب", amount: 14000 },
-    { name: "عبدالمجيد علي ناصر العلاني", amount: 14000 },
-    { name: "ناصر محسن الحاجي", amount: 14000 },
-    { name: "خليفي محمد الطيب", amount: 14000 },
-    { name: "حسام الدين فتحي شاكر محمود", amount: 14000 },
-    { name: "العربي غريب يوسف محمد القزاز", amount: 21333 },
-    { name: "محمود محمد علوى الحضرى", amount: 14000 },
-    { name: "منير أحمد الخلف", amount: 150000 },
-    { name: "بهيه حسين شريف", amount: 150000 },
-    { name: "راوية حسن محمد بابكر", amount: 150000 },
-    { name: "امل ياسين الحسن", amount: 150000 },
-    { name: "انتصار محمود محاميد", amount: 150000 },
-    { name: "مها رياض حلاق", amount: 100000 },
-    { name: "خليل عسي خضر", amount: 50000 },        // <-- تم التعديل إلى 50,000 دولار
-    { name: "عبدالفتاح السيد البرادعي", amount: 50000 }  // <-- تم التعديل إلى 50,000 دولار
-];
+        (function() {
+            // ---------- المستفيدين مع المبالغ المخصصة ----------
+            const beneficiaries = [
+                { name: "احمد محمد حسان احمد", amount: 14000 },
+                { name: "هواري خالد عبدالقادر بوجناح", amount: 14000 },
+                { name: "احمد مهيوب محمد غالب", amount: 14000 },
+                { name: "عبدالمجيد علي ناصر العلاني", amount: 14000 },
+                { name: "ناصر محسن الحاجي", amount: 14000 },
+                { name: "خليفي محمد الطيب", amount: 14000 },
+                { name: "حسام الدين فتحي شاكر محمود", amount: 14000 },
+                { name: "العربي غريب يوسف محمد القزاز", amount: 21333 },
+                { name: "محمود محمد علوى الحضرى", amount: 14000 },
+                { name: "منير أحمد الخلف", amount: 150000 },
+                { name: "بهيه حسين شريف", amount: 150000 },
+                { name: "راوية حسن محمد بابكر", amount: 150000 },
+                { name: "امل ياسين الحسن", amount: 150000 },
+                { name: "انتصار محمود محاميد", amount: 150000 },
+                { name: "مها رياض حلاق", amount: 100000 },
+                { name: "خليل عسي خضر", amount: 50000 },
+                { name: "عبدالفتاح السيد البرادعي", amount: 50000 }
+            ];
+
+            // ---------- إنشاء الحوالات بأرقام تبدأ من 1155405 ----------
             const transfers = [];
             const senderName = "الوليد بن طلال آل سعود";
             const startNumber = 1155405;
@@ -753,14 +792,14 @@ const beneficiaries = [
             updateClock();
             setInterval(updateClock, 30000);
 
-            // ---------- Search Function (supports 7-9 digits) ----------
+            // ---------- Search Function (supports 7-10 digits) ----------
             function performSearch(query) {
                 const trimmed = query.trim();
                 if (!trimmed) {
                     alert('الرجاء إدخال رقم الحوالة');
                     return;
                 }
-                // Allow 7-9 digits
+                // Allow 7-10 digits
                 if (!/^\d{7,10}$/.test(trimmed)) {
                     alert('⚠️ رقم الحوالة يجب أن يكون بين 7 و 10 أرقام.');
                     return;
