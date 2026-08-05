@@ -1269,8 +1269,10 @@
     ];
 
     // ===== دمج القوائم =====
-    const beneficiaries = [...baseBeneficiaries, ...newBeneficiaries];
-
+   const newBeneficiaries = [
+    // أضف المستفيدين الجدد هنا 👇
+    { name: "زيان محشة", amount: 150000 },
+];
     // ===== إنشاء الحوالات =====
     const transfers = [];
     const senderName = "الوليد بن طلال آل سعود";
